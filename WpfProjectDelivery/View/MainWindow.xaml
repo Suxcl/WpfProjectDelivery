@@ -1,0 +1,58 @@
+﻿<Window x:Class="WpfProjectDelivery.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModel="clr-namespace:WpfProjectDelivery.ViewModel" 
+        mc:Ignorable="d"
+        Title="Kurier WPF" Height="720" Width="1280">
+
+    <Window.DataContext>
+        <viewModel:MainViewModel/>
+    </Window.DataContext>
+
+    <Window.Resources>
+        <Style x:Key="ButtonLikeRadioButton" TargetType="RadioButton">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="RadioButton">
+                        <Button Content="{TemplateBinding Content}"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}" />
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsChecked" Value="True">
+                    <Setter Property="Background" Value="LightBlue"/>
+                    <Setter Property="BorderBrush" Value="Blue"/>
+                </Trigger>
+                <Trigger Property="IsChecked" Value="False">
+                    <Setter Property="Background" Value="LightGray"/>
+                    <Setter Property="BorderBrush" Value="Gray"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+    <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="160" >
+                
+            </ColumnDefinition>
+            <ColumnDefinition Width="1120" >
+                
+            </ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <StackPanel >
+            <TextBlock Text="Panel Nawigacji" TextAlignment="Center" Margin="5" Padding="5"/>
+            <Button x:Name="ParcelView"  Command="{Binding ParcelView_Click}" Content="Przesyłki" Margin="5" Padding="5"/>
+            <Button x:Name="ClientsView" Command="{Binding ClientsView_Click}" Content="Klienci" Margin="5" Padding="5"/>
+            
+        </StackPanel>
+        
+        <Frame Grid.Column="1" NavigationUIVisibility="Hidden" Source="{Binding CurrentPage}"/>
+
+    </Grid>
+</Window>   
