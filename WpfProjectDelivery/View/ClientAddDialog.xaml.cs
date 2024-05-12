@@ -10,21 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using WpfProjectDelivery.Model;
 
 namespace WpfProjectDelivery.View
 {
     /// <summary>
-    /// Logika interakcji dla klasy ClientsView.xaml
+    /// Logika interakcji dla klasy ClientAddDialog.xaml
     /// </summary>
-    public partial class ClientsView : Page
+    public partial class ClientAddDialog : Window
     {
-        public ClientsView()
+        public ClientAddDialog()
         {
             InitializeComponent();
-
         }
     }
 }

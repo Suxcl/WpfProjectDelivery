@@ -7,13 +7,21 @@ using System.Threading.Tasks;
 
 namespace WpfProjectDelivery.Model
 {
-    public class Client(string Name, string Email, int Number, Address address)
+    public class Client
     {
-        private Guid ClientId = Guid.NewGuid();
-        private string ClientName = Name;
-        private string ClientEmail = Email;
-        private int Number = Number;
-        private Address ClientAddress = address;
+        public Guid ClientId { get; }
+        public string ClientName { get; set; }
+        public string ClientEmail { get; set; }
+        public int Number { get; set; }
+        public Address ClientAddress { get; set; }
+
+        public Client(string Name, string Email, int number, Address address) {
+            ClientId = Guid.NewGuid();
+            ClientName = Name;
+            ClientEmail = Email;
+            Number = number;
+            ClientAddress = address;
+        }
     }
 
     

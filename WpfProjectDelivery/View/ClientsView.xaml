@@ -10,20 +10,30 @@
       Background="AntiqueWhite"
       Title="ClientsView">
 
-    
+
     <Page.DataContext>
-        <viewModel:ParcelsViewModel/>
+        <viewModel:ClientsViewModel/>
     </Page.DataContext>
 
+    <Page.Resources>
+    </Page.Resources>
+
     <Grid>
-        <DataGrid Name="ClientGrid" ItemsSource="{Binding}" AutoGenerateColumns="False">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Id"/>
-                <DataGridTextColumn Header="Name"/>
-                <DataGridTextColumn Header="E-mail"/>
-                <DataGridTextColumn Header="Tel. Number"/>
-                <DataGridTextColumn Header="Adress"/>
-            </DataGrid.Columns>
-        </DataGrid>
+        <DockPanel LastChildFill="False">
+            <DataGrid DockPanel.Dock="Top" Name="ClientGrid" ItemsSource="{Binding Clients}" CanUserSortColumns="True" AutoGenerateColumns="False" AlternatingRowBackground="Gray" AlternationCount="2">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Id" Binding="{Binding ClientId}"/>
+                    <DataGridTextColumn Header="Name" Binding="{Binding ClientName}"/>
+                    <DataGridTextColumn Header="E-mail" Binding="{Binding ClientEmail}"/>
+                    <DataGridTextColumn Header="Tel. Number" Binding="{Binding Number}"/>
+                    <DataGridTextColumn Header="Adress" Binding="{Binding ClientAddress}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <ToolBar DockPanel.Dock="Bottom" Height="30">
+                <Button x:Name="AddClient" Command="{Binding AddClient_Click}" Content="Add Client" ToolTip="Add Client"/>
+                <Button x:Name="DeleteClient" Command="{Binding DeleteClient_Click}" Content="Delete Client" ToolTip="Delete Client"/>
+                <Button x:Name="EditClient" Command="{Binding EditClient_Click}" Content="Edit Client" ToolTip="Edit Client"/>
+            </ToolBar>
+        </DockPanel>
     </Grid>
 </Page>

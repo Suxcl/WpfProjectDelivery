@@ -1,0 +1,57 @@
+﻿<Window x:Class="WpfProjectDelivery.View.ClientAddDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfProjectDelivery.View"
+        xmlns:viewModel="clr-namespace:WpfProjectDelivery.ViewModel" 
+        mc:Ignorable="d"
+        Title="ClientAddDialog" Height="200" Width="400">
+
+    <Window.DataContext>
+        <viewModel:ClientsViewModel/>
+    </Window.DataContext>
+
+    <Window.Resources>
+        <Style TargetType="DockPanel">
+            <Setter Property="LastChildFill" Value="true"/>
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="Width" Value="70"/>
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="Width" Value="auto"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Width" Value="150"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <DockPanel LastChildFill="False">
+            <TextBlock Text="Add client dialog" DockPanel.Dock="Top" Width="auto" TextAlignment="Center"/>
+            <DockPanel DockPanel.Dock="Top">
+                <TextBlock DockPanel.Dock="Left" Text="Name"/>
+                <TextBox DockPanel.Dock="Left" Name="ClientName" Text="{Binding ClientName}"/>
+            </DockPanel>
+            <DockPanel DockPanel.Dock="Top">
+                <TextBlock DockPanel.Dock="Left" Text="E-mail"/>
+                <TextBox DockPanel.Dock="Left" Name="ClientEmail" Text="{Binding ClientEmail}"/>
+            </DockPanel>
+            <DockPanel DockPanel.Dock="Top">
+                <TextBlock DockPanel.Dock="Left" Text="Tel. Number"/>
+                <TextBox DockPanel.Dock="Left" Name="Number" Text="{Binding Number}"/>
+            </DockPanel>
+            <DockPanel DockPanel.Dock="Top">
+                <TextBlock DockPanel.Dock="Left" Text="Adress"/>
+                <TextBox DockPanel.Dock="Left" Name="ClientAddress" Text="{Binding ClientAddress}"/>
+            </DockPanel>
+            <DockPanel DockPanel.Dock="Bottom" LastChildFill="False">
+                <Button DockPanel.Dock="Left" Name="Cancel" Command="{Binding Cancel_Click}" Content="Cancel"/>
+                
+                <Button DockPanel.Dock="Right" Name="AddClient" Command="{Binding AddClient_Click}" Content="Add Client"/>
+            </DockPanel>
+        </DockPanel>
+    </Grid>
+</Window>
