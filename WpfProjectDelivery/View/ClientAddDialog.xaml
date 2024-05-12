@@ -6,10 +6,10 @@
         xmlns:local="clr-namespace:WpfProjectDelivery.View"
         xmlns:viewModel="clr-namespace:WpfProjectDelivery.ViewModel" 
         mc:Ignorable="d"
-        Title="ClientAddDialog" Height="200" Width="400">
+        Title="ClientAddDialog" Height="225" Width="400">
 
     <Window.DataContext>
-        <viewModel:ClientsViewModel/>
+        <viewModel:ClientAddDialogModel/>
     </Window.DataContext>
 
     <Window.Resources>
@@ -48,9 +48,9 @@
                 <TextBox DockPanel.Dock="Left" Name="ClientAddress" Text="{Binding ClientAddress}"/>
             </DockPanel>
             <DockPanel DockPanel.Dock="Bottom" LastChildFill="False">
-                <Button DockPanel.Dock="Left" Name="Cancel" Command="{Binding Cancel_Click}" Content="Cancel"/>
+                <Button DockPanel.Dock="Left" Name="Cancel" Command="{Binding Cancel_click}" Content="Cancel"/>
                 
-                <Button DockPanel.Dock="Right" Name="AddClient" Command="{Binding AddClient_Click}" Content="Add Client"/>
+                <Button DockPanel.Dock="Right" Name="AddClient" Command="{Binding AddClient_click}" Content="Add Client"/>
             </DockPanel>
         </DockPanel>
     </Grid>

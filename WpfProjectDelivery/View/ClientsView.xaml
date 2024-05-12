@@ -30,9 +30,9 @@
                 </DataGrid.Columns>
             </DataGrid>
             <ToolBar DockPanel.Dock="Bottom" Height="30">
-                <Button x:Name="AddClient" Command="{Binding AddClient_Click}" Content="Add Client" ToolTip="Add Client"/>
-                <Button x:Name="DeleteClient" Command="{Binding DeleteClient_Click}" Content="Delete Client" ToolTip="Delete Client"/>
-                <Button x:Name="EditClient" Command="{Binding EditClient_Click}" Content="Edit Client" ToolTip="Edit Client"/>
+                <Button x:Name="AddClient" Command="{Binding AddClient_click}" Content="Add Client" ToolTip="Add Client"/>
+                <Button x:Name="DeleteClient" Command="{Binding RemoveClient_click}" Content="Delete Client" ToolTip="Delete Client"/>
+                <Button x:Name="EditClient" Command="{Binding EditClient_click}" Content="Edit Client" ToolTip="Edit Client"/>
             </ToolBar>
         </DockPanel>
     </Grid>
