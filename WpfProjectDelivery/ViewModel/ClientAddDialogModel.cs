@@ -17,7 +17,8 @@ namespace WpfProjectDelivery.ViewModel
 
         public ClientsList clientsList;
 
-        
+        // rozpisanie bindingów
+        // validacja 
 
 
         public ClientAddDialogModel()
