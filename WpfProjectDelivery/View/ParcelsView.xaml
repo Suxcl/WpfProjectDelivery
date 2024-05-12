@@ -16,7 +16,19 @@
     </Page.DataContext>
 
     <Grid>
-        <DataGrid Name="ClientGrid" ItemsSource="{Binding ParcelsList}" AutoGenerateColumns="False">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.2*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <TextBox  Name="SearchTextBox" Text="{Binding SearchText}" Margin="5" Padding="5" Width="200" Height="20"/>
+            <Button  Name="SearchButton" Content="Search" Margin="5" Padding="5"/>
+        </StackPanel>
+
+
+        <DataGrid CanUserSortColumns="True" Grid.Row="1" Name="ClientGrid" ItemsSource="{Binding ParcelsList}" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id"/>
                 <DataGridTextColumn Header="Client"/>

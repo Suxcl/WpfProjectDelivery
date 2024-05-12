@@ -7,8 +7,19 @@ using System.Threading.Tasks;
 
 namespace WpfProjectDelivery.Model
 {
-    public class ClientsList
+    public sealed class ClientsList
     {
+        private ClientsList() { }
+        private static ClientsList? _instance;
+        public static ClientsList GetInstance()
+        {
+            if(_instance == null)
+            {
+                _instance = new ClientsList();
+            } 
+            return _instance;
+        }
+
         private ObservableCollection<Client> clients = new ObservableCollection<Client>();
 
         public ObservableCollection<Client> Clients

@@ -19,7 +19,7 @@ namespace WpfProjectDelivery.ViewModel
         public ICommand RemoveClient_click { get; }
         public ICommand EditClient_click { get; }
         public ClientsViewModel() { 
-            ClientsList clientsList = new ClientsList();
+            ClientsList clientsList = ClientsList.GetInstance();
             Clients = clientsList.Clients;
             clientsList.AddClient(new Client("Alex","alex@alex.alex",1234,new Address("A","B","C","D","AA-BBB")));
             clientsList.AddClient(new Client("Barnuch", "Barnuch@Barnuch.Barnuch", 1234,new Address("A","B","C","D","AA-BBB")));

@@ -12,13 +12,18 @@ namespace WpfProjectDelivery.ViewModel
 {
     public class ClientAddDialogModel
     {
-        public ObservableCollection<Client> Clients { get; set; }
-        ICommand AddClient_click { get; set; }
-        ICommand Cancel_click { get; set; }
+        public ICommand AddClient_click { get; set; }
+        public ICommand Cancel_click { get; set; }
+
+        public ClientsList clientsList;
+
+        
+
 
         public ClientAddDialogModel()
         {
-            Clients = new ObservableCollection<Client>();
+            clientsList = ClientsList.GetInstance();
+            
 
             AddClient_click = new RelayCommand(AddClient);
             Cancel_click = new RelayCommand(Cancel);
