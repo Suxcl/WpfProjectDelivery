@@ -1,15 +1,15 @@
-﻿<Window x:Class="WpfProjectDelivery.View.ClientAddDialog"
+﻿<Window x:Class="WpfProjectDelivery.View.ClientEditDialog"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfProjectDelivery.View"
-        xmlns:viewModel="clr-namespace:WpfProjectDelivery.ViewModel" 
+        xmlns:viewModel="clr-namespace:WpfProjectDelivery.ViewModel"
         mc:Ignorable="d"
-        Title="ClientAddDialog" Height="325" Width="400">
+        Title="ClientEditDialog" Height="325" Width="400">
 
     <Window.DataContext>
-        <viewModel:ClientAddDialogViewModel/>
+        <viewModel:ClientEditDialogViewModel/>
     </Window.DataContext>
 
     <Window.Resources>
@@ -65,8 +65,8 @@
             </DockPanel>
             <DockPanel DockPanel.Dock="Bottom" LastChildFill="False">
                 <Button DockPanel.Dock="Left" Name="Cancel" Command="{Binding Cancel_click}" Content="Cancel"/>
-                
-                <Button DockPanel.Dock="Right" Name="AddClient" Command="{Binding AddClient_click}" Content="Add Client"/>
+
+                <Button DockPanel.Dock="Right" Name="AddClient" Command="{Binding EditClient_click}" Content="Add Client"/>
             </DockPanel>
         </DockPanel>
     </Grid>
