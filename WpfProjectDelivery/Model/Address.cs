@@ -6,11 +6,14 @@ using System.Threading.Tasks;
 
 namespace WpfProjectDelivery.Model
 {
-    public class Address(string city, string street, string street_number, string door_number)
+    public class Address(string state, string city, string address_1, string address_2, string post_code)
     {
-        private string city = city; 
-        private string street = street; 
-        private string street_number = street_number;
-        private string door_number = door_number;
+        public string state = state;
+        public string city = city; 
+        public string address_1 = address_1; 
+        public string address_2 = address_2;
+        public string post_code = post_code;
+
+        
     }
 }
