@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,22 +12,16 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace WpfProjectDelivery.View 
+namespace WpfProjectDelivery.View
 {
     /// <summary>
-    /// Logika interakcji dla klasy ParcelAddDialog.xaml
+    /// Logika interakcji dla klasy ParcelEditDialog.xaml
     /// </summary>
-    public partial class ParcelAddDialog : Window 
+    public partial class ParcelEditDialog : Window
     {
-        public ParcelAddDialog()
+        public ParcelEditDialog()
         {
             InitializeComponent();
         }
-
-        
-
-        
     }
-
-    
 }

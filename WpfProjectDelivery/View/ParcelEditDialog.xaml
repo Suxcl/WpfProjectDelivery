@@ -1,15 +1,16 @@
-﻿<Window x:Class="WpfProjectDelivery.View.ParcelAddDialog"
+﻿<Window x:Class="WpfProjectDelivery.View.ParcelEditDialog"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:viewModel="clr-namespace:WpfProjectDelivery.ViewModel" 
         xmlns:local="clr-namespace:WpfProjectDelivery.View"
+        xmlns:viewModel="clr-namespace:WpfProjectDelivery.ViewModel"
         mc:Ignorable="d"
-        Title="ParcelAddDialog" Height="480" Width="400">
-
+        Title="ParcelAddDialog" Height="540" Width="400">
+    
+    
     <Window.DataContext>
-        <viewModel:ParcelAddDialogViewModel/>
+        <viewModel:ParcelEditDialogViewModel/>
     </Window.DataContext>
 
     <Window.Resources>
@@ -41,10 +42,18 @@
                 </ComboBox>
             </DockPanel>
             <DockPanel DockPanel.Dock="Top">
+                <TextBlock DockPanel.Dock="Left" Text="State"/>
+                <ComboBox>
+                    <ComboBoxItem Content="Pending"></ComboBoxItem>
+                    <ComboBoxItem Content="InDelivery"></ComboBoxItem>
+                    <ComboBoxItem Content="Delivered"></ComboBoxItem>
+                </ComboBox>
+            </DockPanel>
+            <DockPanel DockPanel.Dock="Top">
                 <TextBlock Margin="5" Padding="5" Text="Sender Address" Width="96"></TextBlock>
             </DockPanel>
 
-            
+
             <DockPanel DockPanel.Dock="Top">
                 <TextBlock DockPanel.Dock="Left" Text="State/Region"/>
                 <TextBox DockPanel.Dock="Left" Name="SenderState" Text="{Binding SenderState}"/>
@@ -69,7 +78,7 @@
             <DockPanel DockPanel.Dock="Top">
                 <TextBlock Margin="5" Padding="5" Text="Receiver Address" Width="100"></TextBlock>
             </DockPanel>
-            
+
             <DockPanel DockPanel.Dock="Top">
                 <TextBlock DockPanel.Dock="Left" Text="State/Region"/>
                 <TextBox DockPanel.Dock="Left" Name="ReceiverState" Text="{Binding ReceiverState}"/>
@@ -90,7 +99,7 @@
                 <TextBlock DockPanel.Dock="Left" Text="Post Code"/>
                 <TextBox DockPanel.Dock="Left" Name="ReceiverPost_Code" Text="{Binding ReceiverPost_Code}"/>
             </DockPanel>
-            
+
             <DockPanel DockPanel.Dock="Bottom" LastChildFill="False">
                 <Button DockPanel.Dock="Left" Name="Cancel" Command="{Binding Cancel_click}" Content="Cancel"/>
 

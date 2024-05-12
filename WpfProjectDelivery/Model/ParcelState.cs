@@ -10,6 +10,7 @@ namespace WpfProjectDelivery.Model
     {
         Pending,
         Accepted,
+        InDelivery,
         Delivered,
         Lost,
         Cenceled,

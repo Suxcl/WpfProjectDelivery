@@ -48,6 +48,7 @@
         <StackPanel >
             <TextBlock Text="Panel Nawigacji" TextAlignment="Center" Margin="5" Padding="5"/>
             <Button x:Name="ParcelView"  Command="{Binding ParcelView_Click}" Content="Przesyłki" Margin="5" Padding="5"/>
+            <Button x:Name="ParcelStateView"  Command="{Binding ParcelStateView_Click}" Content="Aktywne Przesyłki" Margin="5" Padding="5"/>
             <Button x:Name="ClientsView" Command="{Binding ClientsView_Click}" Content="Klienci" Margin="5" Padding="5"/>
             
         </StackPanel>
