@@ -6,7 +6,7 @@
       xmlns:local="clr-amespace:WpfProjectDelivery.View"
       xmlns:viewModel="clr-namespace:WpfProjectDelivery.ViewModel" 
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="450"
       Background="AntiqueWhite"
       Title="ClientsView">
 
@@ -19,21 +19,31 @@
     </Page.Resources>
 
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
         <DockPanel LastChildFill="False">
-            <DataGrid DockPanel.Dock="Top" Name="ClientGrid" ItemsSource="{Binding Clients}" CanUserSortColumns="True" AutoGenerateColumns="False" AlternatingRowBackground="Gray" AlternationCount="2">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="Id" Binding="{Binding ClientId}"/>
-                    <DataGridTextColumn Header="Name" Binding="{Binding ClientName}"/>
-                    <DataGridTextColumn Header="E-mail" Binding="{Binding ClientEmail}"/>
-                    <DataGridTextColumn Header="Tel. Number" Binding="{Binding Number}"/>
-                    <DataGridTextColumn Header="Adress" Binding="{Binding ClientAddress}"/>
-                </DataGrid.Columns>
-            </DataGrid>
-            <ToolBar DockPanel.Dock="Bottom" Height="30">
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" Height="30">
                 <Button x:Name="AddClient" Command="{Binding AddClient_click}" Content="Add Client" ToolTip="Add Client"/>
                 <Button x:Name="DeleteClient" Command="{Binding RemoveClient_click}" Content="Delete Client" ToolTip="Delete Client"/>
                 <Button x:Name="EditClient" Command="{Binding EditClient_click}" Content="Edit Client" ToolTip="Edit Client"/>
-            </ToolBar>
+            </StackPanel>
+            <ScrollViewer DockPanel.Dock="Top" CanContentScroll="True" VerticalScrollBarVisibility="Auto">
+                <DataGrid Name="ClientGrid" ItemsSource="{Binding Clients}"
+                      CanUserSortColumns="True" AutoGenerateColumns="False" AlternatingRowBackground="Gray" 
+                      AlternationCount="2" >
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Id" Binding="{Binding ClientId}"/>
+                        <DataGridTextColumn Header="Name" Binding="{Binding ClientName}"/>
+                        <DataGridTextColumn Header="E-mail" Binding="{Binding ClientEmail}"/>
+                        <DataGridTextColumn Header="Tel. Number" Binding="{Binding Number}"/>
+                        <DataGridTextColumn Header="Adress" Binding="{Binding ClientAddress}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </ScrollViewer>
+
+
         </DockPanel>
+
     </Grid>
 </Page>

@@ -21,9 +21,11 @@ namespace WpfProjectDelivery.ViewModel
         public ClientsViewModel() { 
             ClientsList clientsList = ClientsList.GetInstance();
             Clients = clientsList.Clients;
-            clientsList.AddClient(new Client("Alex","alex@alex.alex",1234,new Address("A","B","C","D","AA-BBB")));
-            clientsList.AddClient(new Client("Barnuch", "Barnuch@Barnuch.Barnuch", 1234,new Address("A","B","C","D","AA-BBB")));
-
+            for (int i = 0; i<50 ; i++)
+            {
+                clientsList.AddClient(new Client("Alex", "alex@alex.alex", 1234, new Address("A", "B", "C", "D", "AA-BBB")));
+                clientsList.AddClient(new Client("Barnuch", "Barnuch@Barnuch.Barnuch", 1234, new Address("A", "B", "C", "D", "AA-BBB")));
+            }
             AddClient_click = new RelayCommand(AddClient);
             RemoveClient_click = new RelayCommand(RemoveClient);
             EditClient_click = new RelayCommand(EditClient);
@@ -31,7 +33,8 @@ namespace WpfProjectDelivery.ViewModel
 
         private void EditClient(object obj)
         {
-            throw new NotImplementedException();
+            Window window = new ClientEditDialog();
+            window.ShowDialog();
         }
 
         private void RemoveClient(object obj)

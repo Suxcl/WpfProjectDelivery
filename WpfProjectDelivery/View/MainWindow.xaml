@@ -38,12 +38,8 @@
 
     <Grid Background="White">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="160" >
-                
-            </ColumnDefinition>
-            <ColumnDefinition Width="1120" >
-                
-            </ColumnDefinition>
+            <ColumnDefinition Width="160" />
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <StackPanel >
             <TextBlock Text="Panel Nawigacji" TextAlignment="Center" Margin="5" Padding="5"/>
