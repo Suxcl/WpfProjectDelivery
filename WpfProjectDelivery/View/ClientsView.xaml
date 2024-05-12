@@ -16,6 +16,14 @@
     </Page.DataContext>
 
     <Grid>
-           <TextBlock Text="ClientsView"/>
+        <DataGrid Name="ClientGrid" ItemsSource="{Binding}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id"/>
+                <DataGridTextColumn Header="Name"/>
+                <DataGridTextColumn Header="E-mail"/>
+                <DataGridTextColumn Header="Tel. Number"/>
+                <DataGridTextColumn Header="Adress"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Page>

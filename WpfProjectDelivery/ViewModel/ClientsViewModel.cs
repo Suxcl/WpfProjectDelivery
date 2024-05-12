@@ -8,5 +8,6 @@ namespace WpfProjectDelivery.ViewModel
 {
     internal class ClientsViewModel
     {
+
     }
 }
