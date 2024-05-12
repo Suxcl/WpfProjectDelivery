@@ -19,6 +19,7 @@ namespace WpfProjectDelivery.ViewModel
         public ICommand ParcelView_Click { get; }
         public ICommand ClientsView_Click { get; }
 
+        
         // navigation uri converter for Frame source
         public string FrameSource = "ParcelsView.xaml";
         private Uri _currentPage;

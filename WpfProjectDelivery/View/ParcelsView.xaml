@@ -7,7 +7,7 @@
       xmlns:viewModel="clr-namespace:WpfProjectDelivery.ViewModel" 
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Background="Blue"
+      Background="White"
       Title="ParcelsView">
 
 
@@ -16,6 +16,14 @@
     </Page.DataContext>
 
     <Grid>
-        <TextBlock Text="ParcelsView"/>
+        <DataGrid Name="ClientGrid" ItemsSource="{Binding ParcelsList}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id"/>
+                <DataGridTextColumn Header="Client"/>
+                <DataGridTextColumn Header="Sender Address"/>
+                <DataGridTextColumn Header="Recipient Address"/>
+                <DataGridTextColumn Header="State"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Page>
