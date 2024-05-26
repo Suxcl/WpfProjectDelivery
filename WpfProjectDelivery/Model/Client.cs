@@ -22,6 +22,20 @@ namespace WpfProjectDelivery.Model
             Number = number;
             ClientAddress = address;
         }
+
+        public Client() {
+            ClientId = Guid.NewGuid();
+            ClientName = "";
+            ClientEmail = "";
+            Number = 0;
+            ClientAddress = new Address("", "", "", "", "");
+        }
+
+        public override string ToString()
+        {
+            String client = ClientName + ", " + ClientEmail + ", " + Number + ", " + ClientAddress.ToString();
+            return client;
+        }
     }
 
     

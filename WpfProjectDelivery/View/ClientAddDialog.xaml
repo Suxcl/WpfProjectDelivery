@@ -12,6 +12,7 @@
         <viewModel:ClientAddDialogViewModel/>
     </Window.DataContext>
 
+
     <Window.Resources>
         <Style TargetType="DockPanel">
             <Setter Property="LastChildFill" Value="true"/>
@@ -41,27 +42,27 @@
             </DockPanel>
             <DockPanel DockPanel.Dock="Top">
                 <TextBlock DockPanel.Dock="Left" Text="Tel. Number"/>
-                <TextBox DockPanel.Dock="Left" Name="Number" Text="{Binding Number}"/>
+                <TextBox DockPanel.Dock="Left" Name="Number" Text="{Binding ClientNumber}"/>
             </DockPanel>
             <DockPanel DockPanel.Dock="Top">
                 <TextBlock DockPanel.Dock="Left" Text="State/Region"/>
-                <TextBox DockPanel.Dock="Left" Name="State" Text="{Binding State}"/>
+                <TextBox DockPanel.Dock="Left" Name="State" Text="{Binding ClientState}"/>
             </DockPanel>
             <DockPanel DockPanel.Dock="Top">
                 <TextBlock DockPanel.Dock="Left" Text="City"/>
-                <TextBox DockPanel.Dock="Left" Name="City" Text="{Binding City}"/>
+                <TextBox DockPanel.Dock="Left" Name="City" Text="{Binding ClientCity}"/>
             </DockPanel>
             <DockPanel DockPanel.Dock="Top">
                 <TextBlock DockPanel.Dock="Left" Text="Address 1"/>
-                <TextBox DockPanel.Dock="Left" Name="Address_1" Text="{Binding Address_1}"/>
+                <TextBox DockPanel.Dock="Left" Name="Address_1" Text="{Binding ClientAdress1}"/>
             </DockPanel>
             <DockPanel DockPanel.Dock="Top">
                 <TextBlock DockPanel.Dock="Left" Text="Address 2"/>
-                <TextBox DockPanel.Dock="Left" Name="Address_2" Text="{Binding Address_2}"/>
+                <TextBox DockPanel.Dock="Left" Name="Address_2" Text="{Binding ClientAdress2}"/>
             </DockPanel>
             <DockPanel DockPanel.Dock="Top">
                 <TextBlock DockPanel.Dock="Left" Text="Post Code"/>
-                <TextBox DockPanel.Dock="Left" Name="Post_Code" Text="{Binding Post_Code}"/>
+                <TextBox DockPanel.Dock="Left" Name="Post_Code" Text="{Binding ClientPostcode}"/>
             </DockPanel>
             <DockPanel DockPanel.Dock="Bottom" LastChildFill="False">
                 <Button DockPanel.Dock="Left" Name="Cancel" Command="{Binding Cancel_click}" Content="Cancel"/>

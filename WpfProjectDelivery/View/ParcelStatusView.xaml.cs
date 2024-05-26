@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,19 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using WpfProjectDelivery.Model;
 
 namespace WpfProjectDelivery.View
 {
     /// <summary>
-    /// Logika interakcji dla klasy ClientsView.xaml
+    /// Logika interakcji dla klasy ParcelStatusView.xaml
     /// </summary>
-    public partial class ClientsView : Page
+    public partial class ParcelStatusView : Page
     {
-        public ClientsView()
+        public ParcelStatusView()
         {
             InitializeComponent();
         }
-
     }
 }

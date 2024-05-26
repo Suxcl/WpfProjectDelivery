@@ -19,7 +19,7 @@
     </Page.Resources>
 
     <Grid>
-        <Grid.ColumnDefinitions>
+        <Grid.ColumnDefinitions> 
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <DockPanel LastChildFill="False">
@@ -29,7 +29,7 @@
                 <Button x:Name="EditClient" Command="{Binding EditClient_click}" Content="Edit Client" ToolTip="Edit Client"/>
             </StackPanel>
             <ScrollViewer DockPanel.Dock="Top" CanContentScroll="True" VerticalScrollBarVisibility="Auto">
-                <DataGrid Name="ClientGrid" ItemsSource="{Binding Clients}"
+                <DataGrid x:Name="clientGrid" ItemsSource="{Binding ViewSource.View}" SelectedItem="{Binding SelectedClient}"
                       CanUserSortColumns="True" AutoGenerateColumns="False" AlternatingRowBackground="Gray" 
                       AlternationCount="2" >
                     <DataGrid.Columns>

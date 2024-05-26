@@ -18,6 +18,7 @@ namespace WpfProjectDelivery.ViewModel
         // buttons commands
         public ICommand ParcelView_Click { get; }
         public ICommand ClientsView_Click { get; }
+        public ICommand ParcelStatusView_Click { get; }
 
         
         // navigation uri converter for Frame source
@@ -37,6 +38,7 @@ namespace WpfProjectDelivery.ViewModel
         {
             ParcelView_Click = new RelayCommand(ChangeViewToParcels);
             ClientsView_Click = new RelayCommand(ChangeViewToClients);
+            ParcelStatusView_Click = new RelayCommand(ChangeViewToParcelStatus);
 
 
             CurrentPage = new Uri(FrameSource, UriKind.Relative);
@@ -61,6 +63,14 @@ namespace WpfProjectDelivery.ViewModel
         private void ChangeViewToParcels(object obj)
         {
             string next_source = "ParcelsView.xaml";
+            if (FrameSource == next_source) { return; }
+            FrameSource = next_source;
+            CurrentPage = new Uri(FrameSource, UriKind.Relative);
+        }
+
+        private void ChangeViewToParcelStatus(object obj)
+        {
+            string next_source = "ParcelStatusView.xaml";
             if (FrameSource == next_source) { return; }
             FrameSource = next_source;
             CurrentPage = new Uri(FrameSource, UriKind.Relative);
