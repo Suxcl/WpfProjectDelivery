@@ -40,20 +40,20 @@
         </StackPanel>
 
 
-        <DataGrid CanUserSortColumns="True" Grid.Row="1" Name="ClientGrid" ItemsSource="{Binding ParcelsList}" AutoGenerateColumns="False">
+        <DataGrid CanUserSortColumns="True" Grid.Row="1" Name="ClientGrid" ItemsSource="{Binding ViewSource.View}" SelectedItem="{Binding SelectedParcel}" AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Id"/>
-                <DataGridTextColumn Header="Client"/>
-                <DataGridTextColumn Header="Sender Address"/>
-                <DataGridTextColumn Header="Recipient Address"/>
-                <DataGridTextColumn Header="State"/>
+                <DataGridTextColumn Header="Id" Binding="{Binding ParcelId}"/>
+                <DataGridTextColumn Header="Client" Binding="{Binding client}"/>
+                <DataGridTextColumn Header="Sender Address" Binding="{Binding address_from}"/>
+                <DataGridTextColumn Header="Recipient Address" Binding="{Binding address_to}"/>
+                <DataGridTextColumn Header="State" Binding="{Binding state}"/>
             </DataGrid.Columns>
         </DataGrid>
 
         <ToolBar Grid.Row="2">
-            <Button x:Name="AddParcel" Content="Add Parcel" ToolTip="Add Parcel"/>
-            <Button x:Name="DeleteParcel"  Content="Delete Parcel" ToolTip="Delete Parcel"/>
-            <Button x:Name="EditParcel"  Content="Edit Parcel" ToolTip="Edit Parcel"/>
+            <Button x:Name="AddParcel" Command="{Binding AddParcel_click}" Content="Add Parcel" ToolTip="Add Parcel"/>
+            <Button x:Name="DeleteParcel" Command="{Binding RemoveParcel_click}"  Content="Delete Parcel" ToolTip="Delete Parcel"/>
+            <Button x:Name="EditParcel" Command="{Binding EditParcel_click}"  Content="Edit Parcel" ToolTip="Edit Parcel"/>
         </ToolBar>
         
     </Grid>

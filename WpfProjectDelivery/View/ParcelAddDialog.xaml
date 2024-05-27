@@ -6,7 +6,7 @@
         xmlns:viewModel="clr-namespace:WpfProjectDelivery.ViewModel" 
         xmlns:local="clr-namespace:WpfProjectDelivery.View"
         mc:Ignorable="d"
-        Title="ParcelAddDialog" Height="480" Width="400">
+        Title="ParcelAddDialog" Height="500" Width="400">
 
     <Window.DataContext>
         <viewModel:ParcelAddDialogViewModel/>
@@ -63,7 +63,7 @@
             </DockPanel>
             <DockPanel DockPanel.Dock="Top">
                 <TextBlock DockPanel.Dock="Left" Text="Post Code"/>
-                <TextBox DockPanel.Dock="Left" Name="SenderPost_Code" Text="{Binding SenderPost_Code}"/>
+                <TextBox DockPanel.Dock="Left" Name="SenderPost_Code" Text="{Binding SenderPostCode}"/>
             </DockPanel>
 
             <DockPanel DockPanel.Dock="Top">
@@ -88,13 +88,13 @@
             </DockPanel>
             <DockPanel DockPanel.Dock="Top">
                 <TextBlock DockPanel.Dock="Left" Text="Post Code"/>
-                <TextBox DockPanel.Dock="Left" Name="ReceiverPost_Code" Text="{Binding ReceiverPost_Code}"/>
+                <TextBox DockPanel.Dock="Left" Name="ReceiverPost_Code" Text="{Binding ReceiverPostCode}"/>
             </DockPanel>
             
             <DockPanel DockPanel.Dock="Bottom" LastChildFill="False">
                 <Button DockPanel.Dock="Left" Name="Cancel" Command="{Binding Cancel_click}" Content="Cancel"/>
 
-                <Button DockPanel.Dock="Right" Name="AddClient" Command="{Binding AddClient_click}" Content="Add Client"/>
+                <Button DockPanel.Dock="Right" Name="AddClient" Command="{Binding AddParcel_click}" Content="Add Client"/>
             </DockPanel>
         </DockPanel>
     </Grid>

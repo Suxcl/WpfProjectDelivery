@@ -7,13 +7,31 @@ using System.Threading.Tasks;
 
 namespace WpfProjectDelivery.Model
 {
-    public class Parcel(Client client, Address address_from, Address address_to)
+    
+
+    public class Parcel
     {
-        public Guid ParcelId = Guid.NewGuid();
-        public Client client = client;
-        public Address address_from = address_from;
-        public Address address_to = address_to;
-        public ParcelState state = ParcelState.Pending;
+        public Guid ParcelId { get; }
+        public Client client { get; set; }
+        public Address address_from { get; set; }
+        public Address address_to { get; set; }
+        public ParcelState state {  get; set; }
+        
+        public Parcel(Client client, Address address_from, Address address_to)
+        {
+            this.ParcelId = Guid.NewGuid();
+            this.client = client;
+            this.address_from = address_from;
+            this.address_to = address_to;
+            this.state = ParcelState.Pending;
+
+        }
+
+        public override string ToString()
+        {
+            String parcel = client.ToString() + "\n sender: " + address_from.ToString() + "\n reciever: " + address_to.ToString();
+            return parcel;
+        }
 
     }
 }
