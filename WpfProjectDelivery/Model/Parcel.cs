@@ -27,6 +27,14 @@ namespace WpfProjectDelivery.Model
 
         }
 
+        public Parcel()
+        {
+            ParcelId = Guid.NewGuid();
+            client = new Client();
+            address_from = new Address("", "", "", "", "");
+            address_to = new Address("", "", "", "", "");
+        }
+
         public override string ToString()
         {
             String parcel = client.ToString() + "\n sender: " + address_from.ToString() + "\n reciever: " + address_to.ToString();

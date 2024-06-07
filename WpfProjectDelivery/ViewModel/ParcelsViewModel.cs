@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Input;
 using WpfProjectDelivery.Model;
@@ -48,7 +49,16 @@ namespace WpfProjectDelivery.ViewModel
 
         private void EditParcel(object obj)
         {
-            throw new NotImplementedException();
+            if (SelectedParcel != null)
+            {
+                Window window = new ParcelEditDialog();
+                ParcelEditDialogViewModel parcelEditDialogViewModel = new ParcelEditDialogViewModel();
+                parcelEditDialogViewModel.SetParcel(SelectedParcel);
+                window.DataContext = parcelEditDialogViewModel;
+
+                window.ShowDialog();
+                ViewSource.View.Refresh();
+            }
             
         }
 

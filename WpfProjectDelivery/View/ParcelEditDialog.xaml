@@ -103,7 +103,7 @@
             <DockPanel DockPanel.Dock="Bottom" LastChildFill="False">
                 <Button DockPanel.Dock="Left" Name="Cancel" Command="{Binding Cancel_click}" Content="Cancel"/>
 
-                <Button DockPanel.Dock="Right" Name="AddClient" Command="{Binding AddClient_click}" Content="Add Client"/>
+                <Button DockPanel.Dock="Right" Name="AddClient" Command="{Binding EditParcel_click}" Content="Add Client"/>
             </DockPanel>
         </DockPanel>
     </Grid>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -39,5 +40,20 @@ namespace WpfProjectDelivery.Model
         {
             parcels.Remove(parcel);
         }
+
+        internal void EditParcel(Parcel parcel,Parcel newParcel) 
+        {
+            var item = parcels.FirstOrDefault(p=>p.ParcelId==parcel.ParcelId);
+            if(item!=null)
+            {
+                Debug.WriteLine(item.ToString());
+                item.client = newParcel.client;
+                item.address_from = newParcel.address_from;
+                item.address_to = newParcel.address_to;
+                item.state = newParcel.state;
+                Debug.WriteLine(item.ToString());
+            }
+        }
+
     }
 }
