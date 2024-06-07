@@ -78,6 +78,21 @@ namespace WpfProjectDelivery.ViewModel
 
         private void AddParcel(object obj)
         {
+            if (string.IsNullOrEmpty(SenderState) || string.IsNullOrEmpty(SenderCity) || string.IsNullOrEmpty(SenderAddress_1) || string.IsNullOrEmpty(SenderAddress_2) || string.IsNullOrEmpty(SenderPostCode) || string.IsNullOrEmpty(ReceiverState) || string.IsNullOrEmpty(ReceiverCity) || string.IsNullOrEmpty(ReceiverAddress_1) || string.IsNullOrEmpty(ReceiverAddress_2) || string.IsNullOrEmpty(ReceiverPostCode))
+            {
+                MessageBox.Show("Uzupełnij wszystkie pola");
+                return;
+            }
+            if (SenderState.Any(char.IsDigit) || ReceiverState.Any(char.IsDigit))
+            {
+                MessageBox.Show("Niepoprawny stan");
+                return;
+            }
+            if (SenderCity.Any(char.IsDigit) || ReceiverCity.Any(char.IsDigit))
+            {
+                MessageBox.Show("Niepoprawne miasto");
+                return;
+            }
 
             //Sprawdzanie regexu dla kodu pocztowego jest niemożliwe
             //jest zbyt dużo norm
