@@ -54,6 +54,7 @@
             <Button x:Name="AddParcel" Command="{Binding AddParcel_click}" Content="{DynamicResource AddParcelStr}" ToolTip="Add Parcel"/>
             <Button x:Name="DeleteParcel" Command="{Binding RemoveParcel_click}"  Content="{DynamicResource DeleteParcelStr}" ToolTip="Delete Parcel"/>
             <Button x:Name="EditParcel" Command="{Binding EditParcel_click}"  Content="{DynamicResource EditParcelStr}" ToolTip="Edit Parcel"/>
+            <Button x:Name="ShowInfo" Command="{Binding ShowInfo_click}"  Content="{DynamicResource ShowInfoStr}" ToolTip="Show Info"/>
         </ToolBar>
         
     </Grid>

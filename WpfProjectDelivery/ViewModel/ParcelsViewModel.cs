@@ -9,6 +9,7 @@ using System.Windows;
 using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Input;
+using WpfProjectDelivery;
 using WpfProjectDelivery.Model;
 using WpfProjectDelivery.View;
 
@@ -34,6 +35,7 @@ namespace WpfProjectDelivery.ViewModel
         public ICommand AddParcel_click { get; }
         public ICommand RemoveParcel_click { get; }
         public ICommand EditParcel_click { get; }
+        public ICommand ShowInfo_click { get; }
         public ParcelsViewModel()
         {
             ParcelsList parcelsList = ParcelsList.GetInstance();
@@ -42,6 +44,7 @@ namespace WpfProjectDelivery.ViewModel
             AddParcel_click = new RelayCommand(AddParcel);
             RemoveParcel_click = new RelayCommand(RemoveParcel);
             EditParcel_click = new RelayCommand(EditParcel);
+            ShowInfo_click = new RelayCommand(ShowInfo);
 
             this.ViewSource = new CollectionViewSource();
             ViewSource.Source = this.Parcels;
@@ -81,6 +84,12 @@ namespace WpfProjectDelivery.ViewModel
         private void AddParcel(object obj)
         {
             Window window = new ParcelAddDialog();
+            window.ShowDialog();
+        }
+
+        private void ShowInfo(object obj)
+        {
+            Window window = new ParcelInfo();
             window.ShowDialog();
         }
     }

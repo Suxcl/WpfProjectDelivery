@@ -37,4 +37,5 @@
     <System:String x:Key="PrintStr">Print</System:String>
     <System:String x:Key="ReceiverAddressStr">Receiver Address</System:String>
     <System:String x:Key="AddClientStr">Add Client</System:String>
+    <System:String x:Key="ShowInfoStr">Details</System:String>
 </ResourceDictionary>
