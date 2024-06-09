@@ -24,14 +24,14 @@
 
         <StackPanel Grid.Row="0" Orientation="Horizontal">
             <StackPanel>
-                <TextBlock Text="Search by phrase:" TextAlignment="Left" Margin="5,5,5,0" Padding="5"/>
+                <TextBlock Text="{DynamicResource SearchStr}" TextAlignment="Left" Margin="5,5,5,0" Padding="5"/>
                 <TextBox  Name="SearchTextBox" Text="{Binding SearchText}" Margin="5,0,5,5" Padding="5" Width="200"/>
             </StackPanel>
             <StackPanel>
-                <Button  Name="SearchButton" Content="Search" Margin="5,31,5,5" Padding="5"  />
+                <Button  Name="SearchButton" Content="{DynamicResource SearchStr}" Margin="5,31,5,5" Padding="5"  />
             </StackPanel>
             <StackPanel>
-                <TextBlock Text="Choose State:" TextAlignment="Left" Margin="5,5,5,0" Padding="5"/>
+                <TextBlock Text="{DynamicResource ChooseStateStr}" TextAlignment="Left" Margin="5,5,5,0" Padding="5"/>
                 <ComboBox Margin="5,0,5,5" Padding="5" Text="Choose State" Name="StateComboBox">
 
                     <ComboBoxItem Content="Pending" IsSelected="True"></ComboBoxItem>
@@ -51,9 +51,9 @@
         </DataGrid>
 
         <ToolBar Grid.Row="2">
-            <Button x:Name="AddParcel" Command="{Binding AddParcel_click}" Content="Add Parcel" ToolTip="Add Parcel"/>
-            <Button x:Name="DeleteParcel" Command="{Binding RemoveParcel_click}"  Content="Delete Parcel" ToolTip="Delete Parcel"/>
-            <Button x:Name="EditParcel" Command="{Binding EditParcel_click}"  Content="Edit Parcel" ToolTip="Edit Parcel"/>
+            <Button x:Name="AddParcel" Command="{Binding AddParcel_click}" Content="{DynamicResource AddParcelStr}" ToolTip="Add Parcel"/>
+            <Button x:Name="DeleteParcel" Command="{Binding RemoveParcel_click}"  Content="{DynamicResource DeleteParcelStr}" ToolTip="Delete Parcel"/>
+            <Button x:Name="EditParcel" Command="{Binding EditParcel_click}"  Content="{DynamicResource EditParcelStr}" ToolTip="Edit Parcel"/>
         </ToolBar>
         
     </Grid>

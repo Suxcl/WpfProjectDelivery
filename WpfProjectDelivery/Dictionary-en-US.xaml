@@ -1,0 +1,40 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:System="clr-namespace:System;assembly=System.Runtime">
+    
+    <System:String x:Key="PackageStr">Packages</System:String>
+    <System:String x:Key="ActivePackageStr">Active Packages</System:String>
+    <System:String x:Key="ClientStr">Clients</System:String>
+    <System:String x:Key="NavigationPanelStr">Navigation Panel</System:String>
+    <System:String x:Key="NameStr">Name</System:String>
+    <System:String x:Key="StateStr">State/Region</System:String>
+    <System:String x:Key="CityStr">City</System:String>
+    <System:String x:Key="Address1Str">Address 1</System:String>
+    <System:String x:Key="Address2Str">Address 2</System:String>
+    <System:String x:Key="PostCodeStr">Post Code</System:String>
+    <System:String x:Key="CancelStr">Cancel</System:String>
+    <System:String x:Key="SearchStr">Search by phrase:</System:String>
+    <System:String x:Key="EditClientStr">Edit Client</System:String>
+    <System:String x:Key="DeleteClientStr">Delete Client</System:String>
+    <System:String x:Key="ParcelInfoStr">Parcel Info</System:String>
+    <System:String x:Key="ChooseStateStr">Choose State:</System:String>
+    <System:String x:Key="AddParcelStr">Add Parcel</System:String>
+    <System:String x:Key="DeleteParcelStr">Delete Parcel</System:String>
+    <System:String x:Key="EditParcelStr">Edit Parcel</System:String>
+    <System:String x:Key="PendingStr">Pending</System:String>
+    <System:String x:Key="ParcelSpecificationStr">Parcel Specification</System:String>
+    <System:String x:Key="AcceptedStr">Accepted</System:String>
+    <System:String x:Key="TransitStr">In Transit</System:String>
+    <System:String x:Key="DeliveredStr">Delivered</System:String>
+    <System:String x:Key="CancelledStr">Cancelled</System:String>
+    <System:String x:Key="LostStr">Lost</System:String>
+    <System:String x:Key="SenderStr">Sender:</System:String>
+    <System:String x:Key="ReceiverStr">Receiver:</System:String>
+    <System:String x:Key="StatusStr">Status:</System:String>
+    <System:String x:Key="ClientInformationStr">Client Information</System:String>
+    <System:String x:Key="AddressStr">Address:</System:String>
+    <System:String x:Key="SenderAddressStr">Sender Address</System:String>
+    <System:String x:Key="PrintStr">Print</System:String>
+    <System:String x:Key="ReceiverAddressStr">Receiver Address</System:String>
+    <System:String x:Key="AddClientStr">Add Client</System:String>
+</ResourceDictionary>

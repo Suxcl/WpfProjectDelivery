@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WpfProjectDelivery.View"
         xmlns:viewModel="clr-namespace:WpfProjectDelivery.ViewModel"
         mc:Ignorable="d"
-        Title="ParcelAddDialog" Height="540" Width="400">
+        Title="ParcelEditDialog" Height="540" Width="400">
     
     
     <Window.DataContext>
@@ -34,7 +34,7 @@
 
             <TextBlock Text="Add client dialog" DockPanel.Dock="Top" Width="auto" TextAlignment="Center"/>
             <DockPanel DockPanel.Dock="Top">
-                <TextBlock DockPanel.Dock="Left" Text="Client"/>
+                <TextBlock DockPanel.Dock="Left" Text="{DynamicResource ClientStr}"/>
                 <ComboBox>
                     <ComboBoxItem Content="Client 1"></ComboBoxItem>
                     <ComboBoxItem Content="Client 2"></ComboBoxItem>
@@ -42,7 +42,7 @@
                 </ComboBox>
             </DockPanel>
             <DockPanel DockPanel.Dock="Top">
-                <TextBlock DockPanel.Dock="Left" Text="State"/>
+                <TextBlock DockPanel.Dock="Left" Text="{DynamicResource StatusStr}"/>
                 <ComboBox>
                     <ComboBoxItem Content="Pending"></ComboBoxItem>
                     <ComboBoxItem Content="InDelivery"></ComboBoxItem>
@@ -50,60 +50,60 @@
                 </ComboBox>
             </DockPanel>
             <DockPanel DockPanel.Dock="Top">
-                <TextBlock Margin="5" Padding="5" Text="Sender Address" Width="96"></TextBlock>
+                <TextBlock Margin="5" Padding="5" Text="{DynamicResource SenderAddressStr}" Width="96"></TextBlock>
             </DockPanel>
 
 
             <DockPanel DockPanel.Dock="Top">
-                <TextBlock DockPanel.Dock="Left" Text="State/Region"/>
+                <TextBlock DockPanel.Dock="Left" Text="{DynamicResource StateStr}"/>
                 <TextBox DockPanel.Dock="Left" Name="SenderState" Text="{Binding SenderState}"/>
             </DockPanel>
             <DockPanel DockPanel.Dock="Top">
-                <TextBlock DockPanel.Dock="Left" Text="City"/>
+                <TextBlock DockPanel.Dock="Left" Text="{DynamicResource CityStr}"/>
                 <TextBox DockPanel.Dock="Left" Name="SenderCity" Text="{Binding SenderCity}"/>
             </DockPanel>
             <DockPanel DockPanel.Dock="Top">
-                <TextBlock DockPanel.Dock="Left" Text="Address 1"/>
+                <TextBlock DockPanel.Dock="Left" Text="{DynamicResource Address1Str}"/>
                 <TextBox DockPanel.Dock="Left" Name="SednerAddress_1" Text="{Binding SenderAddress_1}"/>
             </DockPanel>
             <DockPanel DockPanel.Dock="Top">
-                <TextBlock DockPanel.Dock="Left" Text="Address 2"/>
+                <TextBlock DockPanel.Dock="Left" Text="{DynamicResource Address2Str}"/>
                 <TextBox DockPanel.Dock="Left" Name="SenderAddress_2" Text="{Binding SenderAddress_2}"/>
             </DockPanel>
             <DockPanel DockPanel.Dock="Top">
-                <TextBlock DockPanel.Dock="Left" Text="Post Code"/>
+                <TextBlock DockPanel.Dock="Left" Text="{DynamicResource PostCodeStr}"/>
                 <TextBox DockPanel.Dock="Left" Name="SenderPost_Code" Text="{Binding SenderPost_Code}"/>
             </DockPanel>
 
             <DockPanel DockPanel.Dock="Top">
-                <TextBlock Margin="5" Padding="5" Text="Receiver Address" Width="100"></TextBlock>
+                <TextBlock Margin="5" Padding="5" Text="{DynamicResource ReceiverAddressStr}" Width="100"></TextBlock>
             </DockPanel>
 
             <DockPanel DockPanel.Dock="Top">
-                <TextBlock DockPanel.Dock="Left" Text="State/Region"/>
+                <TextBlock DockPanel.Dock="Left" Text="{DynamicResource StateStr}"/>
                 <TextBox DockPanel.Dock="Left" Name="ReceiverState" Text="{Binding ReceiverState}"/>
             </DockPanel>
             <DockPanel DockPanel.Dock="Top">
-                <TextBlock DockPanel.Dock="Left" Text="City"/>
+                <TextBlock DockPanel.Dock="Left" Text="{DynamicResource CityStr}"/>
                 <TextBox DockPanel.Dock="Left" Name="ReceiverCity" Text="{Binding ReceiverCity}"/>
             </DockPanel>
             <DockPanel DockPanel.Dock="Top">
-                <TextBlock DockPanel.Dock="Left" Text="Address 1"/>
+                <TextBlock DockPanel.Dock="Left" Text="{DynamicResource Address1Str}"/>
                 <TextBox DockPanel.Dock="Left" Name="ReceiverAddress_1" Text="{Binding ReceiverAddress_1}"/>
             </DockPanel>
             <DockPanel DockPanel.Dock="Top">
-                <TextBlock DockPanel.Dock="Left" Text="Address 2"/>
+                <TextBlock DockPanel.Dock="Left" Text="{DynamicResource Address2Str}"/>
                 <TextBox DockPanel.Dock="Left" Name="ReceiverAddress_2" Text="{Binding ReceiverAddress_2}"/>
             </DockPanel>
             <DockPanel DockPanel.Dock="Top">
-                <TextBlock DockPanel.Dock="Left" Text="Post Code"/>
+                <TextBlock DockPanel.Dock="Left" Text="{DynamicResource PostCodeStr}"/>
                 <TextBox DockPanel.Dock="Left" Name="ReceiverPost_Code" Text="{Binding ReceiverPost_Code}"/>
             </DockPanel>
 
             <DockPanel DockPanel.Dock="Bottom" LastChildFill="False">
-                <Button DockPanel.Dock="Left" Name="Cancel" Command="{Binding Cancel_click}" Content="Cancel"/>
+                <Button DockPanel.Dock="Left" Name="Cancel" Command="{Binding Cancel_click}" Content="{DynamicResource CancelStr}"/>
 
-                <Button DockPanel.Dock="Right" Name="AddClient" Command="{Binding EditParcel_click}" Content="Add Client"/>
+                <Button DockPanel.Dock="Right" Name="AddClient" Command="{Binding EditParcel_click}" Content="{DynamicResource AddParcelStr}"/>
             </DockPanel>
         </DockPanel>
     </Grid>

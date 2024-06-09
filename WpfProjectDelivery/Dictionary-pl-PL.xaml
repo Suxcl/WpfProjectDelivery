@@ -1,0 +1,40 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:System="clr-namespace:System;assembly=System.Runtime">
+    
+    <System:String x:Key="PackageStr">Przesyłki</System:String>
+    <System:String x:Key="ActivePackageStr">Aktywne Przesyłki</System:String>
+    <System:String x:Key="ClientStr">Klienci</System:String>
+    <System:String x:Key="NavigationPanelStr">Panel Nawigacyjny</System:String>
+    <System:String x:Key="NameStr">Imię</System:String>
+    <System:String x:Key="StateStr">Stan/Region</System:String>
+    <System:String x:Key="CityStr">Miasto</System:String>
+    <System:String x:Key="Address1Str">Adres 1</System:String>
+    <System:String x:Key="Address2Str">Adres 2</System:String>
+    <System:String x:Key="PostCodeStr">Kod Pocztowy</System:String>
+    <System:String x:Key="CancelStr">Anuluj</System:String>
+    <System:String x:Key="SearchStr">Wyszukaj:</System:String>
+    <System:String x:Key="EditClientStr">Edytuj Klienta</System:String>
+    <System:String x:Key="DeleteClientStr">Usuń Klienta</System:String>
+    <System:String x:Key="ParcelInfoStr">Informacje o Paczce</System:String>
+    <System:String x:Key="ChooseStateStr">Wybierz Stan:</System:String>
+    <System:String x:Key="AddParcelStr">Dodaj Paczkę</System:String>
+    <System:String x:Key="DeleteParcelStr">Usuń Paczkę</System:String>
+    <System:String x:Key="EditParcelStr">Edytuj Paczkę</System:String>
+    <System:String x:Key="PendingStr">Oczekująca</System:String>
+    <System:String x:Key="ParcelSpecificationStr">Specyfikaje Paczki</System:String>
+    <System:String x:Key="AcceptedStr">Zaakceptowana</System:String>
+    <System:String x:Key="TransitStr">W Tranzycie</System:String>
+    <System:String x:Key="DeliveredStr">Dostarczona</System:String>
+    <System:String x:Key="CancelledStr">Anulowana</System:String>
+    <System:String x:Key="LostStr">Zagubiona</System:String>
+    <System:String x:Key="SenderStr">Nadawca:</System:String>
+    <System:String x:Key="ReceiverStr">Odbiorca:</System:String>
+    <System:String x:Key="StatusStr">Status:</System:String>
+    <System:String x:Key="ClientInformationStr">Informacje o Kliencie</System:String>
+    <System:String x:Key="AddressStr">Adres:</System:String>
+    <System:String x:Key="SenderAddressStr">Adres Nadawcy</System:String>
+    <System:String x:Key="PrintStr">Drukuj</System:String>
+    <System:String x:Key="ReceiverAddressStr">Adres Odbiorcy</System:String>
+    <System:String x:Key="AddClientStr">Dodaj Klienta</System:String>
+</ResourceDictionary>

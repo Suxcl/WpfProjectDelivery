@@ -27,17 +27,17 @@
         
         
         
-        <TextBlock Grid.ColumnSpan="2" Grid.Row="0" Text="Parcel Info" TextAlignment="Center" FontSize="24" FontFamily="Arial" FontWeight="Bold" Margin="5,5,5,5"/>
+        <TextBlock Grid.ColumnSpan="2" Grid.Row="0" Text="{DynamicResource ParcelInfoStr}" TextAlignment="Center" FontSize="24" FontFamily="Arial" FontWeight="Bold" Margin="5,5,5,5"/>
         
             <Border BorderThickness="1" Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="1" BorderBrush="Gray" Margin="5" CornerRadius="5">
                 <StackPanel>
-                    <TextBlock Text="Parcel Specification" TextAlignment="Left" Margin="5,5,5,0" Padding="5"/>
+                    <TextBlock Text="{DynamicResource ParcelSpecificationStr}" TextAlignment="Left" Margin="5,5,5,0" Padding="5"/>
                     <StackPanel Orientation="Horizontal">
                         <StackPanel>
                             <TextBlock Text="Id:" TextAlignment="Left" Margin="5,5,5,0" Padding="5"/>
-                            <TextBlock Text="Sender:" TextAlignment="Left" Margin="5,5,5,0" Padding="5"/>
-                            <TextBlock Text="Receiver:" TextAlignment="Left" Margin="5,5,5,0" Padding="5"/>
-                            <TextBlock Text="State:" TextAlignment="Left" Margin="5,5,5,0" Padding="5"/>
+                            <TextBlock Text="{DynamicResource SenderStr}" TextAlignment="Left" Margin="5,5,5,0" Padding="5"/>
+                            <TextBlock Text="{DynamicResource ReceiverStr}" TextAlignment="Left" Margin="5,5,5,0" Padding="5"/>
+                            <TextBlock Text="{DynamicResource StatusStr}" TextAlignment="Left" Margin="5,5,5,0" Padding="5"/>
                         </StackPanel>
                         <StackPanel>
                             <TextBlock Text="{Binding Id}" TextAlignment="Left" Margin="5,5,5,0" Padding="5"/>
@@ -50,13 +50,13 @@
             </Border>
         <Border BorderThickness="1" BorderBrush="Gray" Margin="5" CornerRadius="5" Grid.ColumnSpan="2" Grid.Column="2" Grid.Row="1">
                 <StackPanel>
-                    <TextBlock Text="Client Information" TextAlignment="Left" Margin="5,5,5,0" Padding="5"/>
+                    <TextBlock Text="{DynamicResource ClientInformationStr}" TextAlignment="Left" Margin="5,5,5,0" Padding="5"/>
                     <StackPanel Orientation="Horizontal">
                         <StackPanel>
-                                <TextBlock Text="Name:" TextAlignment="Left" Margin="5,5,5,0" Padding="5"/>
+                                <TextBlock Text="{DynamicResource NameStr}" TextAlignment="Left" Margin="5,5,5,0" Padding="5"/>
                                 <TextBlock Text="E-mail:" TextAlignment="Left" Margin="5,5,5,0" Padding="5"/>
                                 <TextBlock Text="Tel. Number:" TextAlignment="Left" Margin="5,5,5,0" Padding="5"/>
-                                <TextBlock Text="Address:" TextAlignment="Left" Margin="5,5,5,0" Padding="5"/>
+                                <TextBlock Text="{DynamicResource AddressStr}" TextAlignment="Left" Margin="5,5,5,0" Padding="5"/>
                         </StackPanel>
                         <StackPanel>
                                 <TextBlock Text="{Binding Name}" TextAlignment="Left" Margin="5,5,5,0" Padding="5"/>
@@ -72,7 +72,7 @@
             </Border>
             <Border BorderThickness="1" BorderBrush="Gray" Margin="5" CornerRadius="5" Grid.Column="3" Grid.Row="2">
                 <StackPanel>
-                    <Button Content="Print" Margin="5,5,5,0" Padding="5"/>
+                    <Button Content="{DynamicResource PrintStr}" Margin="5,5,5,0" Padding="5"/>
                 </StackPanel>
                 
             </Border>

@@ -39,12 +39,12 @@
             </DataGrid>
         </ScrollViewer>
         <StackPanel  Grid.Column="1">
-            <Button Content="Pending"/>
-            <Button Content="Accepted"/>
-            <Button Content="In Transit"/>
-            <Button Content="Delivered"/>
-            <Button Content="Cancelled"/>
-            <Button Content="Lost"/>
+            <Button Content="{DynamicResource PendingStr}"/>
+            <Button Content="{DynamicResource AcceptedStr}"/>
+            <Button Content="{DynamicResource TransitStr}"/>
+            <Button Content="{DynamicResource DeliveredStr}"/>
+            <Button Content="{DynamicResource CancelledStr}"/>
+            <Button Content="{DynamicResource LostStr}"/>
             
         </StackPanel>
 

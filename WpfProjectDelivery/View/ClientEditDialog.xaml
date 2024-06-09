@@ -32,7 +32,7 @@
         <DockPanel LastChildFill="False">
             <TextBlock Text="Edit client dialog" DockPanel.Dock="Top" Width="auto" TextAlignment="Center"/>
             <DockPanel DockPanel.Dock="Top">
-                <TextBlock DockPanel.Dock="Left" Text="Name"/>
+                <TextBlock DockPanel.Dock="Left" Text="{DynamicResource NameStr}"/>
                 <TextBox DockPanel.Dock="Left" Name="ClientName" Text="{Binding ClientName}"/>
             </DockPanel>
             <DockPanel DockPanel.Dock="Top">
@@ -44,29 +44,29 @@
                 <TextBox DockPanel.Dock="Left" Name="Number" Text="{Binding ClientNumber}"/>
             </DockPanel>
             <DockPanel DockPanel.Dock="Top">
-                <TextBlock DockPanel.Dock="Left" Text="State/Region"/>
+                <TextBlock DockPanel.Dock="Left" Text="{DynamicResource StateStr}"/>
                 <TextBox DockPanel.Dock="Left" Name="State" Text="{Binding ClientState}"/>
             </DockPanel>
             <DockPanel DockPanel.Dock="Top">
-                <TextBlock DockPanel.Dock="Left" Text="City"/>
+                <TextBlock DockPanel.Dock="Left" Text="{DynamicResource CityStr}"/>
                 <TextBox DockPanel.Dock="Left" Name="City" Text="{Binding ClientCity}"/>
             </DockPanel>
             <DockPanel DockPanel.Dock="Top">
-                <TextBlock DockPanel.Dock="Left" Text="Address 1"/>
+                <TextBlock DockPanel.Dock="Left" Text="{DynamicResource Address1Str}"/>
                 <TextBox DockPanel.Dock="Left" Name="Address_1" Text="{Binding ClientAdress1}"/>
             </DockPanel>
             <DockPanel DockPanel.Dock="Top">
-                <TextBlock DockPanel.Dock="Left" Text="Address 2"/>
+                <TextBlock DockPanel.Dock="Left" Text="{DynamicResource Address2Str}"/>
                 <TextBox DockPanel.Dock="Left" Name="Address_2" Text="{Binding ClientAdress2}"/>
             </DockPanel>
             <DockPanel DockPanel.Dock="Top">
-                <TextBlock DockPanel.Dock="Left" Text="Post Code"/>
+                <TextBlock DockPanel.Dock="Left" Text="{DynamicResource PostCodeStr}"/>
                 <TextBox DockPanel.Dock="Left" Name="Post_Code" Text="{Binding ClientPostcode}"/>
             </DockPanel>
             <DockPanel DockPanel.Dock="Bottom" LastChildFill="False">
-                <Button DockPanel.Dock="Left" Name="Cancel" Command="{Binding Cancel_click}" Content="Cancel"/>
+                <Button DockPanel.Dock="Left" Name="Cancel" Command="{Binding Cancel_click}" Content="{DynamicResource CancelStr}"/>
 
-                <Button DockPanel.Dock="Right" Name="EditClient" Command="{Binding EditClient_click}" Content="Edit Client"/>
+                <Button DockPanel.Dock="Right" Name="EditClient" Command="{Binding EditClient_click}" Content="{DynamicResource EditClientStr}"/>
             </DockPanel>
         </DockPanel>
     </Grid>

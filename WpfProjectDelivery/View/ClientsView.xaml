@@ -24,9 +24,9 @@
         </Grid.ColumnDefinitions>
         <DockPanel LastChildFill="False">
             <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" Height="30">
-                <Button x:Name="AddClient" Command="{Binding AddClient_click}" Content="Add Client" ToolTip="Add Client"/>
-                <Button x:Name="DeleteClient" Command="{Binding RemoveClient_click}" Content="Delete Client" ToolTip="Delete Client"/>
-                <Button x:Name="EditClient" Command="{Binding EditClient_click}" Content="Edit Client" ToolTip="Edit Client"/>
+                <Button x:Name="AddClient" Command="{Binding AddClient_click}" Content="{DynamicResource AddClientStr}" ToolTip="Add Client"/>
+                <Button x:Name="DeleteClient" Command="{Binding RemoveClient_click}" Content="{DynamicResource DeleteClientStr}" ToolTip="Delete Client"/>
+                <Button x:Name="EditClient" Command="{Binding EditClient_click}" Content="{DynamicResource EditClientStr}" ToolTip="Edit Client"/>
             </StackPanel>
             <ScrollViewer DockPanel.Dock="Top" CanContentScroll="True" VerticalScrollBarVisibility="Auto">
                 <DataGrid x:Name="clientGrid" ItemsSource="{Binding ViewSource.View}" SelectedItem="{Binding SelectedClient}"
