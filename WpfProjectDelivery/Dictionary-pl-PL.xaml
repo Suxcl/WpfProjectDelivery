@@ -38,4 +38,7 @@
     <System:String x:Key="ReceiverAddressStr">Adres Odbiorcy</System:String>
     <System:String x:Key="AddClientStr">Dodaj Klienta</System:String>
     <System:String x:Key="ShowInfoStr">Szczegóły</System:String>
+    <System:String x:Key="Search">Szukaj</System:String>
+    <System:String x:Key="Cancel">Anuluj</System:String>
+    <System:String x:Key="All">Wszystkie</System:String>
 </ResourceDictionary>

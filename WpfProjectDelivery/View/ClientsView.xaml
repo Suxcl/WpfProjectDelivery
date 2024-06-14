@@ -5,10 +5,9 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-amespace:WpfProjectDelivery.View"
       xmlns:viewModel="clr-namespace:WpfProjectDelivery.ViewModel" 
-      mc:Ignorable="d" 
-      d:DesignHeight="450"
-      Background="AntiqueWhite"
-      Title="ClientsView">
+      mc:Ignorable="d"
+      Background="White"
+      Title="ClientsView" d:DesignHeight="450" d:DesignWidth="800">
 
 
     <Page.DataContext>
@@ -19,31 +18,47 @@
     </Page.Resources>
 
     <Grid>
-        <Grid.ColumnDefinitions> 
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <DockPanel LastChildFill="False">
-            <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" Height="30">
-                <Button x:Name="AddClient" Command="{Binding AddClient_click}" Content="{DynamicResource AddClientStr}" ToolTip="Add Client"/>
-                <Button x:Name="DeleteClient" Command="{Binding RemoveClient_click}" Content="{DynamicResource DeleteClientStr}" ToolTip="Delete Client"/>
-                <Button x:Name="EditClient" Command="{Binding EditClient_click}" Content="{DynamicResource EditClientStr}" ToolTip="Edit Client"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.1*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <StackPanel>
+                <TextBlock Text="{DynamicResource SearchStr}" TextAlignment="Left" Margin="5,5,5,0" Padding="5"/>
+                <TextBox  Name="SearchTextBox" Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" Margin="5,0,5,5" Padding="5" Width="200"/>
             </StackPanel>
-            <ScrollViewer DockPanel.Dock="Top" CanContentScroll="True" VerticalScrollBarVisibility="Auto">
-                <DataGrid x:Name="clientGrid" ItemsSource="{Binding ViewSource.View}" SelectedItem="{Binding SelectedClient}"
-                      CanUserSortColumns="True" AutoGenerateColumns="False" AlternatingRowBackground="Gray" 
-                      AlternationCount="2" >
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Id" Binding="{Binding ClientId}"/>
-                        <DataGridTextColumn Header="Name" Binding="{Binding ClientName}"/>
-                        <DataGridTextColumn Header="E-mail" Binding="{Binding ClientEmail}"/>
-                        <DataGridTextColumn Header="Tel. Number" Binding="{Binding Number}"/>
-                        <DataGridTextColumn Header="Adress" Binding="{Binding ClientAddress}"/>
-                    </DataGrid.Columns>
-                </DataGrid>
-            </ScrollViewer>
+            <StackPanel>
+                <Button  Name="CancelSearchButton" Content="x" Command="{Binding Cancel_click}" Margin="5,31,5,5" Padding="5"  /> 
+            </StackPanel>
+            <StackPanel>
+                <Button  Name="SearchButton" Content="{DynamicResource Search}" Command="{Binding Search_click}" Margin="5,31,5,5" Padding="5"  />
+            </StackPanel>
+        </StackPanel>
+        <ScrollViewer Grid.Row="1" DockPanel.Dock="Top" CanContentScroll="True" VerticalScrollBarVisibility="Auto">
+            <DataGrid x:Name="clientGrid" ItemsSource="{Binding ViewSource.View}" SelectedItem="{Binding SelectedClient}"
+                        CanUserSortColumns="True" AutoGenerateColumns="False" AlternatingRowBackground="Gray" 
+                        AlternationCount="2" >
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Id" Binding="{Binding ClientId}"/>
+                    <DataGridTextColumn Header="Name" Binding="{Binding ClientName}"/>
+                    <DataGridTextColumn Header="E-mail" Binding="{Binding ClientEmail}"/>
+                    <DataGridTextColumn Header="Tel. Number" Binding="{Binding Number}"/>
+                    <DataGridTextColumn Header="Adress" Binding="{Binding ClientAddress}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </ScrollViewer>
+        <DockPanel LastChildFill="False">
+
+
 
 
         </DockPanel>
 
+        <StackPanel Grid.Row="2" Orientation="Horizontal" DockPanel.Dock="Bottom" Height="30">
+            <Button x:Name="AddClient" Margin="2,0,2,0" Padding="5" Command="{Binding AddClient_click}" Content="{DynamicResource AddClientStr}" ToolTip="Add Client"/>
+            <Button x:Name="DeleteClient" Margin="2,0,2,0" Padding="5" Command="{Binding RemoveClient_click}" Content="{DynamicResource DeleteClientStr}" ToolTip="Delete Client"/>
+            <Button x:Name="EditClient" Margin="2,0,2,0" Padding="5" Command="{Binding EditClient_click}" Content="{DynamicResource EditClientStr}" ToolTip="Edit Client"/>
+        </StackPanel>
     </Grid>
 </Page>

@@ -1,25 +1,64 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Data;
 using System.Diagnostics;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Data;
+using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Media;
 using WpfProjectDelivery;
 using WpfProjectDelivery.Model;
 using WpfProjectDelivery.View;
 
 namespace WpfProjectDelivery.ViewModel
 {
-    internal class ParcelsViewModel
+    internal class ParcelsViewModel : INotifyPropertyChanged
     {
         public CollectionViewSource ViewSource { get; set; }
         public ObservableCollection<Parcel> Parcels { get; set; }
+        public ObservableCollection<ParcelState> ParcelStates { get; set; }
+        public string _selectedState { get; set; }
+        public ComboBox StateComboBox { get; set; }
+        public string SelectedState
+        {
+            get
+            {
+                return _selectedState;
+            }
+            set
+            {
+                //SetAndResetView(Filter());
+                _selectedState = value;
+                OnPropertyChanged("SelectedState");
+            }
+        }
+        
+        public string _searchText { get; set; }
+        public string SearchText
+        {
+            get
+            {
+                return _searchText;
+            }
+            set
+            {
+                //SetAndResetView(Filter());
+                _searchText = value;               
+                OnPropertyChanged();
+            }
+        }
         public Parcel _selectedParcel;
+        private ObservableCollection<Parcel> flteredParcel;
+
         public Parcel SelectedParcel
         {
             get
@@ -28,23 +67,97 @@ namespace WpfProjectDelivery.ViewModel
             }
             set
             {
-                Debug.WriteLine(value);
                 _selectedParcel = value;
             }
         }
+
+
+        public void FilterParcels()
+        {
+            List<Parcel> parcelsList = new List<Parcel>(this.Parcels.ToList());
+        }
+
+        public ObservableCollection<Parcel> Filter()
+        {
+            List<Parcel> parcelsList = new List<Parcel>(this.Parcels.ToList());
+            var trimmedSelVal = SelectedState.Substring(SelectedState.IndexOf(":") + 1).Trim();
+            if (parcelsList.Count > 0)
+            {
+                
+                {
+                    foreach (Parcel parcel in this.Parcels.ToList())
+                    {
+ 
+                        if(trimmedSelVal == "All" || trimmedSelVal == "Wszystkie"){}
+                        else
+                        {
+                            Trace.WriteLine("parcelList: " + parcelsList);
+                            Trace.WriteLine("state: " + parcel.state.ToString() + " | " + trimmedSelVal);
+                            if (parcel.state.ToString() != trimmedSelVal)
+                            {
+                                parcelsList.Remove(parcel);
+                            }
+                        }
+                        //Trace.WriteLine(parcel.state.ToString() +" | "+ SelectedState);
+                        //Trace.WriteLine(SelectedState.CompareTo(parcel.state.ToString()));
+                        if (SearchText != "")
+                        {
+                            if (!parcel.ToString().ToLower().Contains(SearchText.ToLower()))
+                            {
+                                parcelsList.Remove(parcel);
+                            }
+                        }
+                        
+
+                        
+                    }
+                }
+            }
+
+   
+            return new ObservableCollection<Parcel>(parcelsList);
+        }
+        
+
+
+        
+
+
+       
+        // buttons events
         public ICommand AddParcel_click { get; }
         public ICommand RemoveParcel_click { get; }
         public ICommand EditParcel_click { get; }
         public ICommand ShowInfo_click { get; }
+        public ICommand Search_click { get; }
+        public ICommand Cancel_click { get; }
+
         public ParcelsViewModel()
         {
             ParcelsList parcelsList = ParcelsList.GetInstance();
             Parcels = parcelsList.Parcels;
 
+            ParcelStates = new ObservableCollection<ParcelState>
+            {
+                ParcelState.Pending,
+                ParcelState.Accepted,
+                ParcelState.InDelivery,
+                ParcelState.Delivered,
+                ParcelState.Lost,
+                ParcelState.Cenceled,
+            };
+
+            SearchText = "";
+            
+
+            
+
             AddParcel_click = new RelayCommand(AddParcel);
             RemoveParcel_click = new RelayCommand(RemoveParcel);
             EditParcel_click = new RelayCommand(EditParcel);
             ShowInfo_click = new RelayCommand(ShowInfo);
+            Search_click = new RelayCommand(Search);
+            Cancel_click = new RelayCommand(Cancel);
 
             this.ViewSource = new CollectionViewSource();
             ViewSource.Source = this.Parcels;
@@ -64,7 +177,31 @@ namespace WpfProjectDelivery.ViewModel
             }
             
         }
+        private void Search(object obj)
+        {
+            Trace.WriteLine("szukanie test");
+            SetAndResetView(Filter());
+            
+        }
 
+        public void SetAndResetView(ObservableCollection<Parcel> parcels)
+        {
+            this.ViewSource.Source = parcels;
+            ViewSource.View.Refresh();
+        }
+
+        private void Cancel(object obj)
+        {
+            SearchText = "";
+            var trimmedSelVal = SelectedState.Substring(SelectedState.IndexOf(":") + 1).Trim();
+            if(trimmedSelVal == "All") SelectedState = "All";
+            else SelectedState = "Wszystkie";
+            
+            var cb = (ComboBox)StateComboBox;
+            if(cb != null) cb.SelectedIndex = -1;
+
+            SetAndResetView(this.Parcels);   
+        }
         private void RemoveParcel(object obj)
         {
             if (SelectedParcel != null)
@@ -83,6 +220,8 @@ namespace WpfProjectDelivery.ViewModel
 
         private void AddParcel(object obj)
         {
+            Console.WriteLine("teścik");
+            Trace.WriteLine("teścik");
             Window window = new ParcelAddDialog();
             window.ShowDialog();
         }
@@ -92,5 +231,21 @@ namespace WpfProjectDelivery.ViewModel
             Window window = new ParcelInfo();
             window.ShowDialog();
         }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+        protected bool SetProperty<T>(ref T field, T value, [CallerMemberName] string propertyName = null)
+        {
+            if (EqualityComparer<T>.Default.Equals(field, value)) return false;
+            Trace.WriteLine("teścik");
+            //ViewSource.Source = Filter(this.Parcels);
+            //ViewSource.View.Refresh();
+            OnPropertyChanged(propertyName);
+            return false;
+        }
     }
 }
+

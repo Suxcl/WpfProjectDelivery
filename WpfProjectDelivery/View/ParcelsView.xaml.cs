@@ -34,5 +34,10 @@ namespace WpfProjectDelivery.View
         {
 
         }
+
+        private void ComboBoxItem_Selected(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

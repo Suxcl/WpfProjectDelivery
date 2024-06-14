@@ -11,11 +11,13 @@ namespace WpfProjectDelivery.Model
     public sealed class ClientsList
     {
         private ClientsList() {
+            /*
             for (int i = 0; i < 1; i++)
             {
                 this.AddClient(new Client("Alex", "alex@alex.alex", 1234, new Address("A", "B", "C", "D", "AA-BBB")));
                 this.AddClient(new Client("Barnuch", "Barnuch@Barnuch.Barnuch", 1234, new Address("A", "B", "C", "D", "AA-BBB")));
             }
+            */
         }
         private static ClientsList? _instance;
         public static ClientsList GetInstance()
@@ -38,6 +40,11 @@ namespace WpfProjectDelivery.Model
         public void AddClient(Client client)
         {
             clients.Add(client);
+        }
+
+        public void setClients(ObservableCollection<Client> clients)
+        {
+            this.clients = new ObservableCollection<Client>(clients);
         }
 
         public void RemoveClient(Client client)

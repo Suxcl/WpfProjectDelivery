@@ -1,4 +1,6 @@
-﻿using System.Text;
+﻿using System.IO.IsolatedStorage;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -20,5 +22,7 @@ namespace WpfProjectDelivery
         {
             InitializeComponent();
         }
+
+       
     }
 }

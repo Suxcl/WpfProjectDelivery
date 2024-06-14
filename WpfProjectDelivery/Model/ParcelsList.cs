@@ -14,8 +14,9 @@ namespace WpfProjectDelivery.Model
             ClientsList clientsList = ClientsList.GetInstance();
             Client client = new Client();
             clientsList.AddClient(client);
-            Parcel parcel = new Parcel(client,new Address("a","a","a","a","aa-aaa"), new Address("b", "b", "b", "b", "bb-bbb"));
-            this.AddParcel(parcel);
+            //Parcel parcel = new Parcel(client,new Address("a","a","a","a","aa-aaa"), new Address("b", "b", "b", "b", "bb-bbb"));
+            
+            //this.AddParcel(parcel);
         }
         private static ParcelsList? _instance;
         public static ParcelsList GetInstance()
@@ -29,6 +30,11 @@ namespace WpfProjectDelivery.Model
         { 
             get { return parcels; } 
             set { parcels = value; }
+        }
+
+        public void setParcels(ObservableCollection<Parcel> parcels)
+        {
+            this.parcels = new ObservableCollection<Parcel>(parcels);
         }
 
         public void AddParcel(Parcel parcel)

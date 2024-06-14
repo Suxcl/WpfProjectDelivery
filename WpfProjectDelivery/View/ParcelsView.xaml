@@ -25,18 +25,36 @@
         <StackPanel Grid.Row="0" Orientation="Horizontal">
             <StackPanel>
                 <TextBlock Text="{DynamicResource SearchStr}" TextAlignment="Left" Margin="5,5,5,0" Padding="5"/>
-                <TextBox  Name="SearchTextBox" Text="{Binding SearchText}" Margin="5,0,5,5" Padding="5" Width="200"/>
+                <TextBox  Name="SearchTextBox" Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" Margin="5,0,5,5" Padding="5" Width="200"/>
             </StackPanel>
-            <StackPanel>
-                <Button  Name="SearchButton" Content="{DynamicResource SearchStr}" Margin="5,31,5,5" Padding="5"  />
-            </StackPanel>
-            <StackPanel>
-                <TextBlock Text="{DynamicResource ChooseStateStr}" TextAlignment="Left" Margin="5,5,5,0" Padding="5"/>
-                <ComboBox Margin="5,0,5,5" Padding="5" Text="Choose State" Name="StateComboBox">
 
-                    <ComboBoxItem Content="Pending" IsSelected="True"></ComboBoxItem>
+            <!--<StackPanel>-->
+            <!--    <Button  Name="CancelSearchButton" Content="x" Command="{Binding Cancel_click}" Margin="5,31,5,5" Padding="5"  />-->
+            <!--</StackPanel>-->
+            
+
+            <StackPanel>
+                <TextBlock Text="{DynamicResource ChooseStateStr}"  TextAlignment="Left" Margin="5,5,5,0" Padding="5"/>
+                <ComboBox x:Name="stateComboBox"
+                    Margin="5,0,5,5" Padding="5" Text="Choose State" 
+ 
+                          SelectedItem="{Binding SelectedState, Mode=TwoWay}"
+                          SelectedIndex="0">
+                    <ComboBoxItem Content="{DynamicResource All}" ></ComboBoxItem>
+                    <ComboBoxItem Content="{DynamicResource PendingStr}"></ComboBoxItem>
+                    <ComboBoxItem Content="{DynamicResource AcceptedStr}"></ComboBoxItem>
+                    <ComboBoxItem Content="{DynamicResource InDeliveryStr}"></ComboBoxItem>
+                    <ComboBoxItem Content="{DynamicResource DeliveredStr}"></ComboBoxItem>
+                    <ComboBoxItem Content="{DynamicResource LostStr}"></ComboBoxItem>
+                    <ComboBoxItem Content="{DynamicResource CancelledStr}"></ComboBoxItem>
+                    
+                    
                 </ComboBox>
             </StackPanel>
+            <StackPanel>
+                <Button  Name="SearchButton" Content="{DynamicResource Search}" Command="{Binding Search_click}" Margin="5,31,5,5" Padding="5"  />
+            </StackPanel>
+            
         </StackPanel>
 
 

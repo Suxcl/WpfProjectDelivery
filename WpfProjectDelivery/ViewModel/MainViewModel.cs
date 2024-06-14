@@ -76,6 +76,9 @@ namespace WpfProjectDelivery.ViewModel
             CurrentPage = new Uri(FrameSource, UriKind.Relative);
         }
 
+        
+        
+
     }
 
 
