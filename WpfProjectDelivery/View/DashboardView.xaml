@@ -13,7 +13,17 @@
     </Page.DataContext>
 
     <Grid>
-        <lvc:PieChart Name="Chart" Grid.Row="1" Series="{Binding SeriesCollection}" 
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="150"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.5*"/>
+        </Grid.RowDefinitions>
+        <lvc:PieChart Name="Chart" Grid.Row="1" Grid.Column="1" Series="{Binding SeriesCollection}"
                       LegendLocation="Right" InnerRadius="100" Margin="0 15">
             <lvc:PieChart.ChartLegend>
                 <lvc:DefaultLegend BulletSize="20"></lvc:DefaultLegend>
