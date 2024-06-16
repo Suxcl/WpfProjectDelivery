@@ -19,8 +19,9 @@ namespace WpfProjectDelivery.ViewModel
         public ICommand ParcelView_Click { get; }
         public ICommand ClientsView_Click { get; }
         public ICommand ParcelStatusView_Click { get; }
+        public ICommand DashboardView_Click { get; }
 
-        
+
         // navigation uri converter for Frame source
         public string FrameSource = "ParcelsView.xaml";
         private Uri _currentPage;
@@ -39,17 +40,27 @@ namespace WpfProjectDelivery.ViewModel
             ParcelView_Click = new RelayCommand(ChangeViewToParcels);
             ClientsView_Click = new RelayCommand(ChangeViewToClients);
             ParcelStatusView_Click = new RelayCommand(ChangeViewToParcelStatus);
-
+            DashboardView_Click = new RelayCommand(ChangeViewToDashboard);
 
             CurrentPage = new Uri(FrameSource, UriKind.Relative);
 
         }
+
+        
 
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        private void ChangeViewToDashboard(object obj)
+        {
+            string next_source = "DashboardView.xaml";
+            if (FrameSource == next_source) { return; }
+            FrameSource = next_source;
+            CurrentPage = new Uri(FrameSource, UriKind.Relative);
         }
 
         private void ChangeViewToClients(object obj)
