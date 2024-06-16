@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Data;
 using System.Windows.Input;
 using WpfProjectDelivery.Model;
 using WpfProjectDelivery.View;
@@ -16,7 +18,8 @@ namespace WpfProjectDelivery.ViewModel
     public class ParcelAddDialogViewModel : INotifyPropertyChanged
     {
 
-        public ObservableCollection<string> Clients { get; set; }
+        public ObservableCollection<Client> Clients { get; set; }
+        public Client SelectedClient { get; set; }
 
         public ICommand Cancel_click { get; set; }
         public ICommand AddParcel_click { get; set; }
@@ -37,15 +40,14 @@ namespace WpfProjectDelivery.ViewModel
         public ParcelAddDialogViewModel()
         {
             ClientsList clientsList = ClientsList.GetInstance();
-            Clients = new ObservableCollection<string>();
-            //Clients = clientsList.Clients;
+            Clients = new ObservableCollection<Client>(clientsList.Clients);
+            
 
 
             Cancel_click = new RelayCommand(Cancel);
             AddParcel_click = new RelayCommand(AddParcel);
         }
 
-        
 
         public string SearchTextText
         {
@@ -97,7 +99,7 @@ namespace WpfProjectDelivery.ViewModel
             //Sprawdzanie regexu dla kodu pocztowego jest niemożliwe
             //jest zbyt dużo norm
             ParcelsList parcelslist = ParcelsList.GetInstance();
-            Client client = new Client();
+            Client client = SelectedClient;
             Parcel parcel = new Parcel(
                 client,
                 new Address(SenderState,SenderCity,SenderAddress_1,SenderAddress_2,SenderPostCode),

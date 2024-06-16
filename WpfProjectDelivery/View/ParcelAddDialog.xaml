@@ -34,10 +34,9 @@
             <TextBlock Text="Add client dialog" DockPanel.Dock="Top" Width="auto" TextAlignment="Center"/>
             <DockPanel DockPanel.Dock="Top">
                 <TextBlock DockPanel.Dock="Left" Text="{DynamicResource ClientStr}"/>
-                <ComboBox>
-                    <ComboBoxItem Content="Client 1"></ComboBoxItem>
-                    <ComboBoxItem Content="Client 2"></ComboBoxItem>
-                    <ComboBoxItem Content="Client 3"></ComboBoxItem>
+                <ComboBox ItemsSource="{Binding Clients}"
+                          SelectedValue="{Binding Path=SelectedClient}"
+                          >
                 </ComboBox>
             </DockPanel>
             <DockPanel DockPanel.Dock="Top">
