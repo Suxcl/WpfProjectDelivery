@@ -37,6 +37,19 @@ namespace WpfProjectDelivery.Model
             this.parcels = new ObservableCollection<Parcel>(parcels);
         }
 
+        public int getParcelCount_onStatus(ParcelState state)
+        {
+            int count = 0;
+            foreach (var parcel in parcels)
+            {
+                if (parcel.state == state)
+                {
+                    count++;
+                }
+            }
+            return count;
+        }
+
         public void AddParcel(Parcel parcel)
         {
             parcels.Add(parcel);
