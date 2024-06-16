@@ -144,7 +144,7 @@ namespace WpfProjectDelivery.ViewModel
                 ParcelState.InDelivery,
                 ParcelState.Delivered,
                 ParcelState.Lost,
-                ParcelState.Cenceled,
+                ParcelState.Canceled,
             };
 
             SearchText = "";

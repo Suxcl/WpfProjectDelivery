@@ -13,6 +13,6 @@ namespace WpfProjectDelivery.Model
         InDelivery,
         Delivered,
         Lost,
-        Cenceled,
+        Canceled,
     }
 }

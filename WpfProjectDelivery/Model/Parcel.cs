@@ -27,6 +27,15 @@ namespace WpfProjectDelivery.Model
 
         }
 
+        public Parcel(Client client, Address address_from, Address address_to, ParcelState state)
+        {
+            this.ParcelId = Guid.NewGuid();
+            this.client = client;
+            this.address_from = address_from;
+            this.address_to = address_to;
+            this.state = state;
+        }
+
         public Parcel()
         {
             ParcelId = Guid.NewGuid();
