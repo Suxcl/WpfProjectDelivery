@@ -13,11 +13,14 @@ namespace WpfProjectDelivery.ViewModel
 {
     public class ParcelEditDialogViewModel
     {
+        public ObservableCollection<Client> Clients { get; set; }
+        public Client SelectedClient { get; set; }
+        public ObservableCollection<ParcelState> ParcelStates { get; set; }
+        public ParcelState SelectedParcelState { get; set; }
         public ICommand EditParcel_click { get; private set; }
         public ICommand Cancel_click { get; private set; }
 
         public Parcel ParcelToEdit { get; set; } = new Parcel();
-        public ObservableCollection<string> Clients { get; set; }
 
         // bindingi
         public String SenderState { get; set; } = "";
@@ -33,11 +36,24 @@ namespace WpfProjectDelivery.ViewModel
 
         public ParcelsList parcelsList;
 
+
+
         public ParcelEditDialogViewModel()
         {
             parcelsList = ParcelsList.GetInstance();
             ClientsList clientsList = ClientsList.GetInstance();
-            Clients = new ObservableCollection<string>();
+            Clients = new ObservableCollection<Client>(clientsList.Clients);
+            ParcelStates = new ObservableCollection<ParcelState>
+            {
+                ParcelState.Pending,
+                ParcelState.Accepted,
+                ParcelState.InDelivery,
+                ParcelState.Delivered,
+                ParcelState.Lost,
+                ParcelState.Canceled
+            };
+
+
 
             EditParcel_click = new RelayCommand(EditParcel);
             Cancel_click = new RelayCommand(Cancel);
@@ -46,6 +62,9 @@ namespace WpfProjectDelivery.ViewModel
         public void SetParcel(Parcel parcel)
         {
             ParcelToEdit = parcel;
+
+            SelectedClient = parcel.client;
+            SelectedParcelState = parcel.state;
 
             SenderState = parcel.address_from.state;
             SenderCity = parcel.address_from.city;

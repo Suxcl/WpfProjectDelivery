@@ -57,6 +57,7 @@
 
             <ScrollViewer Grid.Row="1" DockPanel.Dock="Top" CanContentScroll="True" VerticalScrollBarVisibility="Auto">
             <DataGrid CanUserSortColumns="True" Grid.Row="1" Name="parcelGrid" AutoGenerateColumns="False"
+                      IsReadOnly="True"
                       ItemsSource="{Binding ViewSource.View}" SelectedItem="{Binding SelectedParcel}">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Client" Binding="{Binding client}"/>

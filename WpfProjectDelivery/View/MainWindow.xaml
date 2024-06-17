@@ -52,6 +52,7 @@
 
             <!--<Image x:Name="Logo" Height="50" Width="100" Source="{Binding ImgSrc}" />-->
             <Label Content="{DynamicResource NavigationPanelStr}"  Margin="5" Padding="5" FontSize="16" FontFamily="SemiBold"/>
+            <Button x:Name="DashboardView" Command="{Binding DashboardView_Click}" Content="{DynamicResource DashboardStr}" Margin="5" Padding="5"/>
             <Button x:Name="ParcelView"  Command="{Binding ParcelView_Click}" Content="{DynamicResource PackageStr}" Margin="5" Padding="5" />
             <Button x:Name="ParcelStateView"  Command="{Binding ParcelStatusView_Click}" Content="{DynamicResource ActivePackageStr}" Margin="5" Padding="5"/>
             <Button x:Name="ClientsView" Command="{Binding ClientsView_Click}" Content="{DynamicResource ClientStr}" Margin="5" Padding="5"/>

@@ -1,7 +1,8 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:System="clr-namespace:System;assembly=System.Runtime">
-    
+
+    <System:String x:Key="DashboardStr">Dashboard</System:String>
     <System:String x:Key="PackageStr">Packages</System:String>
     <System:String x:Key="ActivePackageStr">Active Packages</System:String>
     <System:String x:Key="ClientStr">Clients</System:String>

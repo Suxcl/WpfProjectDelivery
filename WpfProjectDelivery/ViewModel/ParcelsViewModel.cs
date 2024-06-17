@@ -219,7 +219,12 @@ namespace WpfProjectDelivery.ViewModel
         private void ShowInfo(object obj)
         {
             Window window = new ParcelInfo();
+            ParcelInfoViewModel parcelInfoViewModel = new ParcelInfoViewModel();
+            parcelInfoViewModel.SetParcel(SelectedParcel);
+            window.DataContext = parcelInfoViewModel;
+
             window.ShowDialog();
+            ViewSource.View.Refresh();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

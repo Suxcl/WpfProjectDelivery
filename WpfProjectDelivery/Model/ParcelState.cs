@@ -15,4 +15,6 @@ namespace WpfProjectDelivery.Model
         Lost,
         Canceled,
     }
+
+
 }
