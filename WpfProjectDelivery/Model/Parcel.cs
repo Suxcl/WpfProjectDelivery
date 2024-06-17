@@ -49,6 +49,11 @@ namespace WpfProjectDelivery.Model
             String parcel = client.ToString() + "\n sender: " + address_from.ToString() + "\n reciever: " + address_to.ToString();
             return parcel;
         }
+        public string ToStringForSearch()
+        {
+            String str = ParcelId.ToString() + client.ToString() + address_from.ToString() + address_to.ToString() + state.ToString();
+            return str;
+        }
 
     }
 }

@@ -1,12 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 using WpfProjectDelivery.View;
 
 namespace WpfProjectDelivery.ViewModel
@@ -20,6 +24,7 @@ namespace WpfProjectDelivery.ViewModel
         public ICommand ClientsView_Click { get; }
         public ICommand ParcelStatusView_Click { get; }
 
+        public string ImgSrc { get; set; }
         
         // navigation uri converter for Frame source
         public string FrameSource = "ParcelsView.xaml";
@@ -42,10 +47,14 @@ namespace WpfProjectDelivery.ViewModel
 
 
             CurrentPage = new Uri(FrameSource, UriKind.Relative);
+            //string path = Path.Combine(path1: Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), path2: @"Assets\wpd.png");
+            //ImgSrc = path;
 
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
+
+        
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {

@@ -3,9 +3,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:viewModel="clr-namespace:WpfProjectDelivery.ViewModel" 
+        xmlns:viewModel="clr-namespace:WpfProjectDelivery.ViewModel" xmlns:wpfprojectdelivery="clr-namespace:WpfProjectDelivery"
+        xmlns:cont="clr-namespace:WpfProjectDelivery.Controls"
+        xmlns:basicPath="clr-namespace:WpfProjectDelivery"
         mc:Ignorable="d"
         Title="Kurier WPF" Height="720" Width="1280">
+
 
     <Window.DataContext>
         <viewModel:MainViewModel/>
@@ -37,12 +40,17 @@
     </Window.Resources>
 
     <Grid Background="White">
+
+        
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="160" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         
         <StackPanel >
+
+            <!--<Image x:Name="Logo" Height="50" Width="100" Source="{Binding ImgSrc}" />-->
             <Label Content="{DynamicResource NavigationPanelStr}"  Margin="5" Padding="5" FontSize="16" FontFamily="SemiBold"/>
             <Button x:Name="ParcelView"  Command="{Binding ParcelView_Click}" Content="{DynamicResource PackageStr}" Margin="5" Padding="5" />
             <Button x:Name="ParcelStateView"  Command="{Binding ParcelStatusView_Click}" Content="{DynamicResource ActivePackageStr}" Margin="5" Padding="5"/>

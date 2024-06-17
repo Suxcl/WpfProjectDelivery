@@ -27,6 +27,7 @@
     <System:String x:Key="TransitStr">In Transit</System:String>
     <System:String x:Key="DeliveredStr">Delivered</System:String>
     <System:String x:Key="CancelledStr">Cancelled</System:String>
+    <System:String x:Key="InDeliveryStr">In Delivery</System:String>
     <System:String x:Key="LostStr">Lost</System:String>
     <System:String x:Key="SenderStr">Sender:</System:String>
     <System:String x:Key="ReceiverStr">Receiver:</System:String>

@@ -41,4 +41,5 @@
     <System:String x:Key="Search">Szukaj</System:String>
     <System:String x:Key="Cancel">Anuluj</System:String>
     <System:String x:Key="All">Wszystkie</System:String>
+    <System:String x:Key="InDeliveryStr">W dostawie</System:String>
 </ResourceDictionary>

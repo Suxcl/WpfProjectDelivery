@@ -12,7 +12,7 @@
         <viewModel:ParcelInfoViewModel/>
     </Window.DataContext>
 
-    <Grid ShowGridLines="True" x:Name="Info">
+    <Grid x:Name="Info">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>

@@ -91,25 +91,21 @@ namespace WpfProjectDelivery.ViewModel
                         if(trimmedSelVal == "All" || trimmedSelVal == "Wszystkie"){}
                         else
                         {
-                            Trace.WriteLine("parcelList: " + parcelsList);
-                            Trace.WriteLine("state: " + parcel.state.ToString() + " | " + trimmedSelVal);
                             if (parcel.state.ToString() != trimmedSelVal)
                             {
                                 parcelsList.Remove(parcel);
                             }
-                        }
-                        //Trace.WriteLine(parcel.state.ToString() +" | "+ SelectedState);
-                        //Trace.WriteLine(SelectedState.CompareTo(parcel.state.ToString()));
+                        };
                         if (SearchText != "")
                         {
-                            if (!parcel.ToString().ToLower().Contains(SearchText.ToLower()))
+                            var search = SearchText.ToLower();
+
+                            if (!parcel.ToStringForSearch().ToLower().Contains(search))
+                                
                             {
                                 parcelsList.Remove(parcel);
                             }
-                        }
-                        
-
-                        
+                        } 
                     }
                 }
             }
@@ -117,13 +113,7 @@ namespace WpfProjectDelivery.ViewModel
    
             return new ObservableCollection<Parcel>(parcelsList);
         }
-        
 
-
-        
-
-
-       
         // buttons events
         public ICommand AddParcel_click { get; }
         public ICommand RemoveParcel_click { get; }

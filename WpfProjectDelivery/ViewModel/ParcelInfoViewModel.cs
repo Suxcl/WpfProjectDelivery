@@ -8,11 +8,11 @@ namespace WpfProjectDelivery.ViewModel
 {
     class ParcelInfoViewModel
     {
-            public string Id { get; set; }
-            public string Sender { get; set; }
-            public string Receiver { get; set; }
-            public string State { get; set; }
-            public string Name { get; set; }
+        public string Id { get; set; }
+        public string Sender { get; set; }
+        public string Receiver { get; set; }
+        public string State { get; set; }
+        public string Name { get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }
         public string Address { get; set; }

@@ -22,6 +22,7 @@ using System.ComponentModel;
 using System.Text.Json;
 using System.Diagnostics;
 using System.Xml.Linq;
+using System.Diagnostics.Metrics;
 
 
 
@@ -41,18 +42,14 @@ namespace WpfProjectDelivery.View
         public string clientPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"clients.json");
 
 
+        
+
         public MainWindow()
         {
             InitializeComponent();
-            string parcelPathv2 = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "parcels.dat");
-            string clientPathv2 = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "clients.dat");
-
-
-
-
+            
             ParcelsList parcels = ParcelsList.GetInstance();
             ClientsList clients = ClientsList.GetInstance();
-
 
             if (File.Exists(parcelPath))
             {

@@ -6,7 +6,9 @@ using System.Diagnostics;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Threading.Channels;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Input;
 using WpfProjectDelivery.Model;
@@ -26,6 +28,9 @@ namespace WpfProjectDelivery.ViewModel
         public ICommand set_Delivered_click { get; set; }
         public ICommand set_Lost_click { get; set; }
         public ICommand set_Canceled_click { get; set; }
+        public ICommand Search_click { get; }
+        public ICommand Cancel_click { get; }
+
 
         public Parcel _selectedParcel;
         public Parcel SelectedParcel
@@ -40,6 +45,72 @@ namespace WpfProjectDelivery.ViewModel
                 _selectedParcel = value;
             }
         }
+        public ComboBox StateComboBox { get; set; }
+        public string _selectedState { get; set; }
+        public string SelectedState
+        {
+            get
+            {
+                return _selectedState;
+            }
+            set
+            {
+                //SetAndResetView(Filter());
+                _selectedState = value;
+                OnPropertyChanged("SelectedState");
+            }
+        }
+        public string _searchText { get; set; }
+        public string SearchText
+        {
+            get
+            {
+                return _searchText;
+            }
+            set
+            {
+                //SetAndResetView(Filter());
+                _searchText = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public ObservableCollection<Parcel> Filter()
+        {
+            List<Parcel> parcelsList = new List<Parcel>(this.Parcels.ToList());
+            var trimmedSelVal = SelectedState.Substring(SelectedState.IndexOf(":") + 1).Trim();
+            if (parcelsList.Count > 0)
+            {
+
+                {
+                    foreach (Parcel parcel in this.Parcels.ToList())
+                    {
+
+                        if (trimmedSelVal == "All" || trimmedSelVal == "Wszystkie") { }
+                        else
+                        {
+                            if (parcel.state.ToString() != trimmedSelVal)
+                            {
+                                parcelsList.Remove(parcel);
+                            }
+                        };
+                        if (SearchText != "")
+                        {
+                            var search = SearchText.ToLower();
+
+                            if (!parcel.ToStringForSearch().ToLower().Contains(search))
+
+                            {
+                                parcelsList.Remove(parcel);
+                            }
+                        }
+                    }
+                }
+            }
+
+
+            return new ObservableCollection<Parcel>(parcelsList);
+        }
 
         public ParcelStatusViewModel()
         {
@@ -52,9 +123,35 @@ namespace WpfProjectDelivery.ViewModel
             set_Delivered_click = new RelayCommand(set_Delivered);
             set_Lost_click = new RelayCommand(set_Lost);
             set_Canceled_click = new RelayCommand(set_Canceled);
+            Search_click = new RelayCommand(Search);
+            Cancel_click = new RelayCommand(Cancel);
 
             this.ViewSource = new CollectionViewSource();
             ViewSource.Source = this.Parcels;
+        }
+
+        private void Search(object obj)
+        {
+            SetAndResetView(Filter());
+        }
+
+        public void SetAndResetView(ObservableCollection<Parcel> parcels)
+        {
+            this.ViewSource.Source = parcels;
+            ViewSource.View.Refresh();
+        }
+
+        private void Cancel(object obj)
+        {
+            SearchText = "";
+            var trimmedSelVal = SelectedState.Substring(SelectedState.IndexOf(":") + 1).Trim();
+            if (trimmedSelVal == "All") SelectedState = "All";
+            else SelectedState = "Wszystkie";
+
+            var cb = (ComboBox)StateComboBox;
+            if (cb != null) cb.SelectedIndex = -1;
+
+            SetAndResetView(this.Parcels);
         }
 
         protected void update_view()

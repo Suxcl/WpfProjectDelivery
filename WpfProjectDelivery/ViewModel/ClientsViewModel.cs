@@ -81,7 +81,7 @@ namespace WpfProjectDelivery.ViewModel
                 {
                     if (SearchText != "")
                     {
-                        if (!client.ToString().ToLower().Contains(SearchText.ToLower()))
+                        if (!client.ToStringForSearch().ToLower().Contains(SearchText.ToLower()))
                         {
                             clientList.Remove(client);
                         }
