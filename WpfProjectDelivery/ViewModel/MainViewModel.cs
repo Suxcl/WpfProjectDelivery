@@ -50,6 +50,10 @@ namespace WpfProjectDelivery.ViewModel
             CurrentPage = new Uri(FrameSource, UriKind.Relative);
             //string path = Path.Combine(path1: Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), path2: @"Assets\wpd.png");
             //ImgSrc = path;
+            string localAppData = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+            string appDataFolder = Path.Combine(localAppData, "WpfProjectDelivery");
+            string filePath = Path.Combine(appDataFolder, "Assets/wpd.png");
+            ImgSrc = filePath;
 
         }
 

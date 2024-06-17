@@ -37,6 +37,7 @@ namespace WpfProjectDelivery.View
                 PrintDialog printDialog = new PrintDialog();
                 if(printDialog.ShowDialog()== true)
                 {
+                    //printDialog.PrintVisual(Info, "ParcelInfo");
                     printDialog.PrintVisual(Info, "ParcelInfo");
                 }
             }

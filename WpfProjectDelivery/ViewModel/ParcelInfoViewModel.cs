@@ -3,12 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 using WpfProjectDelivery.Model;
 
 namespace WpfProjectDelivery.ViewModel
 {
     class ParcelInfoViewModel
     {
+        public Parcel Parcel { get; set; }
         public string Id { get; set; }
         public string Sender { get; set; }
         public string Receiver { get; set; }
@@ -18,6 +24,8 @@ namespace WpfProjectDelivery.ViewModel
         public string Phone { get; set; }
         public string Address { get; set; }
 
+        public ICommand Print_click { get; }
+
         public Parcel ParcelToView { get; set; } = new Parcel();
 
         public ParcelsList parcelsList;
@@ -25,6 +33,10 @@ namespace WpfProjectDelivery.ViewModel
 
         public ParcelInfoViewModel()
         {
+            Print_click = new RelayCommand(PrintClick);
+
+
+
             Id = "1";
             Sender = "Zwiecrzyniecka 100 Białystok";
             Receiver = "Sienkiewicza 43/23 Białystok";
@@ -38,9 +50,49 @@ namespace WpfProjectDelivery.ViewModel
 
         }
 
+        private void PrintClick(object obj)
+        {
+
+            FlowDocument doc = new FlowDocument();
+            doc.PageWidth = 793.7; 
+            doc.PageHeight = 1122.52;
+            doc.ColumnWidth = 793.7; 
+            /*
+            Image image = new Image();
+            image.Source = new BitmapImage(new Uri("pack://application:,,,/WpfProjectDelivery;component/wpd.png"));
+            image.Width = 200; 
+            image.Height = 100; 
+            image.Stretch = Stretch.Uniform;
+            BlockUIContainer blockUIContainer = new BlockUIContainer(image);
+            doc.Blocks.Add(blockUIContainer);
+            */
+            doc.Blocks.Add(new Paragraph(new Run("Parcel Specifications: ")));
+            doc.Blocks.Add(new Paragraph(new Run("ParcelID: "+Parcel.ParcelId.ToString())));
+            doc.Blocks.Add(new Paragraph(new Run("Client Info:")));
+            doc.Blocks.Add(new Paragraph(new Run("  Name: "+ Parcel.client.ClientName)));
+            doc.Blocks.Add(new Paragraph(new Run("  Email: " + Parcel.client.ClientEmail)));
+            doc.Blocks.Add(new Paragraph(new Run("  Number: " + Parcel.client.Number.ToString())));
+            doc.Blocks.Add(new Paragraph(new Run("  Address: " + Parcel.client.ClientAddress.ToString())));
+            doc.Blocks.Add(new Paragraph(new Run("Parcel details: ")));
+            doc.Blocks.Add(new Paragraph(new Run("  State: " + Parcel.state.ToString())));
+            doc.Blocks.Add(new Paragraph(new Run("  Sender address: " + Parcel.address_from.ToString())));
+            doc.Blocks.Add(new Paragraph(new Run("  Receiver address: " + Parcel.address_to.ToString())));
+            doc.Blocks.Add(new Paragraph(new Run("")));
+
+
+            IDocumentPaginatorSource idpSource = doc;
+            PrintDialog printDialog = new PrintDialog();
+            if (printDialog.ShowDialog() == true)
+            {
+                printDialog.PrintDocument(idpSource.DocumentPaginator, "My Document");
+            }
+            
+        }
+
         public void SetParcel(Parcel parcel)
         {
             ParcelToView = parcel;
+            this.Parcel = parcel;
 
             Id = parcel.ParcelId.ToString();
 
